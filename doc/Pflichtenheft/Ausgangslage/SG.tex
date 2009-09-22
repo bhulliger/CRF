@@ -1,0 +1,47 @@
+\section{Scene Graph}
+Ein Scene Graph ist eine objektorientierte Datenstruktur, mit der die logische und r\"aumliche Anordnung von zwei- oder dreidimensionalen Objekten in einer Szene beschrieben werden kann.
+In der Computergrafik gibt es verschiedene Scene Graph Bibliotheken, die sich etabliert haben. Im Open Source Umfeld gibt es zwei potentielle Bibliotheken, welche bereits in mehreren renommierten Projekten eingesetzt werden: OpenSceneGraph und OGRE.
+
+%Das sind:
+%\begin{itemize}
+%	\item OpenSceneGraph
+%	\item OGRE
+%\end{itemize}
+
+\subsection{OpenSceneGraph}
+OpenSceneGraph (\href{http://www.openscenegraph.com}{www.openscenegraph.org}) ist ein auf OpenGL basierendes 3D Grafik Toolkit f\"ur (wissenschaftliche) Simulationen, Modellierungen, Games und Virtual Reality. OSG bietet high-level rendering features die nicht in der Standard OpenGL API integriert sind.
+OSG ist komplett in standard C++ geschrieben und ist somit plattformunabh\"angig.
+
+\subsection{OGRE}
+OGRE (\href{http://www.ogre3d.org}{www.ogre3d.org}) ist eine Open Source Enginge f"ur 3D Grafikdarstellung mit C++ und OpenGL. OGRE bietet Hilfe bei der Entwicklung neuerer Techniken wie Vertex- oder Pixelshader, Normalmapping oder Verarbeitung von g"angigen Model-Dateien. 
+
+\subsection{Evaluation }
+Im Rahmen eines Vorprojekts an der BFH-TI wurden die beiden Scene Graphen auf verschiedene Kriterien untersucht. Dabei kamen wir zu folgenden Resultaten\footnote{Die Punkteskala reicht von 1 bis 10.}:
+	\begin{table}[ht]
+	\centering
+		\begin{tabular}{|l|c||c|c|c||c|c|c|c|}
+			\multicolumn{2}{r}{} 	& \multicolumn{3}{c}{\textbf{OpenSceneGraph}} & \multicolumn{3}{c}{\textbf{OGRE}} \\
+			\hline
+			Kriterien	& Gewichtung		& Wert 	& Pkt. & \%Pkt. 	& Wert 	& Pkt. 	& \%Pkt.\\
+			\hline
+			Performance I 	&	25\%		& 160fps 		&  3 	 	& 75 		& 220fps 	&	7 		&		175	\\
+			Performance II	&	25\% 		& 260fps 		&  7		& 175		& 220fps	& 3			& 	75	\\
+			Community 			&	10\%		&	++	 			&  4	 	& 40		& +++			&	6   	& 	60	\\
+			"ahnl. Projekte &	20\%		&	eqOSG			&  7		& 140		& eqOGRE	&	3			&		60  \\
+			Dokumentation 	&	10\%		&	++				&  4		& 40   	& +++		 	& 6			&		60 	\\
+			Erweiterungen		&	10\%		&	++				& 4		 	& 40    & +++		 	& 6			&		60	\\
+			\hline
+			\hline
+			\textbf{Total} & 100\% & \multicolumn{3}{c||}{\textbf{510}}& \multicolumn{3}{c|}{\textbf{490}}\\
+			\hline
+			\end{tabular}
+		\caption{Entscheidungsmatrix}
+		\label{tab:Entscheidungsmatrix}
+	\end{table}
+\\
+Wie man aus der obenstehenden Entscheidungsmatrix entnehmen kann, ist OSG punktem"assig der knappe Sieger. Dies vor allem wegen der aktuellen Ambitionen welche in ein "ahnliches Projekt investiert werden und der allgemein grossen Verbreitung in wissenschaftlichen Arbeiten. In der Performance
+\footnote{Demo-Setup: Grosses 3D-Model mit einer knappen Million Triangles in einem leeren Universum. System: Intel Pentium Quadcore, nVidia Krafikkarte mit 768MB dediziertem Grafikspeicher. Performance I: Gesamtes Modell auf dem Screen. Performance II (Gezoomtes Objekt): Nur etwa ein Drittel des Models wird auf dem Bildschirm dargestellt. Der Rest (ausserhalb des Bildschirms) wird abgeschnitten.} 
+sind beide Engines etwa gleichauf. Im Test I ist OGRE zwar deutlich schneller, doch die Tatsache das OSG im Test II OGRE sogar "uberholt, zeigt die ausgekl"ugelte Technik, welche zur Optimierung bei OSG eingesetzt wird. \\
+Klare Pluspunkte gewinnt OGRE in der Kategorie "`Community"', da OGRE ein gutes Wiki-Nachschlagewerk und ein Forum mit reger Beteiligung vorweisen kann. OSG bietet "ahnliches, jedoch nicht so gepflegt und ausgepr"agt. \\
+Bei den Erweiterungen lassen sich in beide Engines diverse thirdparty Plugins installieren, welche gr"osstenteils frei verf"ugbar sind. So gibt es f"ur OGRE und OSG beispielsweise Erweiterungen f"ur Physik und Haptik. 
+%Bei den Erweiterungen lassen sich in beide Engines diverse thirdparty Plugins installieren, welche gr"osstenteils frei verf"ugbar sind. So gibt es f"ur OGRE und OSG Erweiterungen f"ur Physik und/oder Haptik, oder 

@@ -1,0 +1,171 @@
+\hypertarget{a00011}{
+\section{eqOsg::InitData Class Reference}
+\label{a00011}\index{eqOsg::InitData@{eqOsg::InitData}}
+}
+The init data holds all data which is needed during initalization.  
+
+
+{\tt \#include $<$InitData.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hypertarget{a00011_9186b2f084ea9016e1bd8f5c98ccb55e}{
+\hyperlink{a00011_9186b2f084ea9016e1bd8f5c98ccb55e}{$\sim$InitData} ()}
+\label{a00011_9186b2f084ea9016e1bd8f5c98ccb55e}
+
+\begin{CompactList}\small\item\em \hyperlink{a00011}{InitData} deconstructor. \item\end{CompactList}\item 
+void \hyperlink{a00011_784dbe6a89945a5311143ca91b01c224}{setFrameDataID} (const uint32\_\-t id)
+\begin{CompactList}\small\item\em Sets the frame ID. \item\end{CompactList}\item 
+uint32\_\-t \hyperlink{a00011_0fed75d0be3cc9d30aa2483920dda8ec}{getFrameDataID} () const 
+\begin{CompactList}\small\item\em Returns the frame ID. \item\end{CompactList}\item 
+bool \hyperlink{a00011_911e15d0bc1d4e427ad574a9b9e0fff9}{parseCommandLine} (char $\ast$$\ast$argv, int argc)
+\begin{CompactList}\small\item\em Parses the command line arguments and puts the things it can parse into the init data. \item\end{CompactList}\item 
+void \hyperlink{a00011_de8e662e01371948b9717ffe8412ed45}{setLoadModel} (bool loadModel)
+\begin{CompactList}\small\item\em Should an osg file model be loaded? This is usually set by \hyperlink{a00011_911e15d0bc1d4e427ad574a9b9e0fff9}{InitData::parseCommandLine()}. \item\end{CompactList}\item 
+bool \hyperlink{a00011_98db3359b5152eebe9967b0e4cf3e29a}{getLoadModel} () const 
+\begin{CompactList}\small\item\em Should an osg file model be loaded? This is usually set by \hyperlink{a00011_911e15d0bc1d4e427ad574a9b9e0fff9}{InitData::parseCommandLine()}. \item\end{CompactList}\item 
+void \hyperlink{a00011_71d9d6c19244b8bf10e8fae264a2327c}{setModelFileName} (const std::string \&fileName)
+\begin{CompactList}\small\item\em Sets the to load model file name. \item\end{CompactList}\item 
+std::string \hyperlink{a00011_b5f311698f1dd969d0a968fb06929426}{getModelFileName} () const 
+\begin{CompactList}\small\item\em Returns the model filename. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+virtual void \hyperlink{a00011_3604e3e7cc5b5c19f62bcf44d75d459f}{getInstanceData} (eq::net::DataOStream \&stream)
+\begin{CompactList}\small\item\em Passes the InitData's data to the stream. \item\end{CompactList}\item 
+virtual void \hyperlink{a00011_c9fa7b403a16477dc402a2e31b04ca50}{applyInstanceData} (eq::net::DataIStream \&stream)
+\begin{CompactList}\small\item\em Gets the data out of the stream. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The init data holds all data which is needed during initalization. 
+
+It is sent by the server to all render clients. It holds the frame data ID, so all clients can sync the frame data object. 
+
+\subsection{Member Function Documentation}
+\hypertarget{a00011_c9fa7b403a16477dc402a2e31b04ca50}{
+\index{eqOsg::InitData@{eqOsg::InitData}!applyInstanceData@{applyInstanceData}}
+\index{applyInstanceData@{applyInstanceData}!eqOsg::InitData@{eqOsg::InitData}}
+\subsubsection[{applyInstanceData}]{\setlength{\rightskip}{0pt plus 5cm}void InitData::applyInstanceData (eq::net::DataIStream \& {\em stream})\hspace{0.3cm}{\tt  \mbox{[}protected, virtual\mbox{]}}}}
+\label{a00011_c9fa7b403a16477dc402a2e31b04ca50}
+
+
+Gets the data out of the stream. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em stream}]The Equalizer stream to read. \end{description}
+\end{Desc}
+\hypertarget{a00011_0fed75d0be3cc9d30aa2483920dda8ec}{
+\index{eqOsg::InitData@{eqOsg::InitData}!getFrameDataID@{getFrameDataID}}
+\index{getFrameDataID@{getFrameDataID}!eqOsg::InitData@{eqOsg::InitData}}
+\subsubsection[{getFrameDataID}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t InitData::getFrameDataID () const}}
+\label{a00011_0fed75d0be3cc9d30aa2483920dda8ec}
+
+
+Returns the frame ID. 
+
+\begin{Desc}
+\item[Returns:]The ID. \end{Desc}
+\hypertarget{a00011_3604e3e7cc5b5c19f62bcf44d75d459f}{
+\index{eqOsg::InitData@{eqOsg::InitData}!getInstanceData@{getInstanceData}}
+\index{getInstanceData@{getInstanceData}!eqOsg::InitData@{eqOsg::InitData}}
+\subsubsection[{getInstanceData}]{\setlength{\rightskip}{0pt plus 5cm}void InitData::getInstanceData (eq::net::DataOStream \& {\em stream})\hspace{0.3cm}{\tt  \mbox{[}protected, virtual\mbox{]}}}}
+\label{a00011_3604e3e7cc5b5c19f62bcf44d75d459f}
+
+
+Passes the InitData's data to the stream. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em stream}]The Equalizer stream to write. \end{description}
+\end{Desc}
+\hypertarget{a00011_98db3359b5152eebe9967b0e4cf3e29a}{
+\index{eqOsg::InitData@{eqOsg::InitData}!getLoadModel@{getLoadModel}}
+\index{getLoadModel@{getLoadModel}!eqOsg::InitData@{eqOsg::InitData}}
+\subsubsection[{getLoadModel}]{\setlength{\rightskip}{0pt plus 5cm}bool eqOsg::InitData::getLoadModel () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{a00011_98db3359b5152eebe9967b0e4cf3e29a}
+
+
+Should an osg file model be loaded? This is usually set by \hyperlink{a00011_911e15d0bc1d4e427ad574a9b9e0fff9}{InitData::parseCommandLine()}. 
+
+\begin{Desc}
+\item[Returns:]True if a model will be loaded by the pipe. \end{Desc}
+\hypertarget{a00011_b5f311698f1dd969d0a968fb06929426}{
+\index{eqOsg::InitData@{eqOsg::InitData}!getModelFileName@{getModelFileName}}
+\index{getModelFileName@{getModelFileName}!eqOsg::InitData@{eqOsg::InitData}}
+\subsubsection[{getModelFileName}]{\setlength{\rightskip}{0pt plus 5cm}std::string eqOsg::InitData::getModelFileName () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{a00011_b5f311698f1dd969d0a968fb06929426}
+
+
+Returns the model filename. 
+
+\begin{Desc}
+\item[Returns:]The filename of the to load model. \end{Desc}
+\hypertarget{a00011_911e15d0bc1d4e427ad574a9b9e0fff9}{
+\index{eqOsg::InitData@{eqOsg::InitData}!parseCommandLine@{parseCommandLine}}
+\index{parseCommandLine@{parseCommandLine}!eqOsg::InitData@{eqOsg::InitData}}
+\subsubsection[{parseCommandLine}]{\setlength{\rightskip}{0pt plus 5cm}bool InitData::parseCommandLine (char $\ast$$\ast$ {\em argv}, \/  int {\em argc})}}
+\label{a00011_911e15d0bc1d4e427ad574a9b9e0fff9}
+
+
+Parses the command line arguments and puts the things it can parse into the init data. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em argv}]The passed arguments. \item[{\em argc}]The passed arguments' counter. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the command line was successfully parsed, false otherwise. \end{Desc}
+\hypertarget{a00011_784dbe6a89945a5311143ca91b01c224}{
+\index{eqOsg::InitData@{eqOsg::InitData}!setFrameDataID@{setFrameDataID}}
+\index{setFrameDataID@{setFrameDataID}!eqOsg::InitData@{eqOsg::InitData}}
+\subsubsection[{setFrameDataID}]{\setlength{\rightskip}{0pt plus 5cm}void InitData::setFrameDataID (const uint32\_\-t {\em id})}}
+\label{a00011_784dbe6a89945a5311143ca91b01c224}
+
+
+Sets the frame ID. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em id}]The id of the frame. \end{description}
+\end{Desc}
+\hypertarget{a00011_de8e662e01371948b9717ffe8412ed45}{
+\index{eqOsg::InitData@{eqOsg::InitData}!setLoadModel@{setLoadModel}}
+\index{setLoadModel@{setLoadModel}!eqOsg::InitData@{eqOsg::InitData}}
+\subsubsection[{setLoadModel}]{\setlength{\rightskip}{0pt plus 5cm}void eqOsg::InitData::setLoadModel (bool {\em loadModel})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{a00011_de8e662e01371948b9717ffe8412ed45}
+
+
+Should an osg file model be loaded? This is usually set by \hyperlink{a00011_911e15d0bc1d4e427ad574a9b9e0fff9}{InitData::parseCommandLine()}. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em loadModel}]True/False \end{description}
+\end{Desc}
+\hypertarget{a00011_71d9d6c19244b8bf10e8fae264a2327c}{
+\index{eqOsg::InitData@{eqOsg::InitData}!setModelFileName@{setModelFileName}}
+\index{setModelFileName@{setModelFileName}!eqOsg::InitData@{eqOsg::InitData}}
+\subsubsection[{setModelFileName}]{\setlength{\rightskip}{0pt plus 5cm}void eqOsg::InitData::setModelFileName (const std::string \& {\em fileName})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{a00011_71d9d6c19244b8bf10e8fae264a2327c}
+
+
+Sets the to load model file name. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em fileName}]An existing osg model in the filesystem. \end{description}
+\end{Desc}
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+E:/schule/Thesis/Repo/trunk/crf/src/InitData.h\item 
+E:/schule/Thesis/Repo/trunk/crf/src/InitData.cpp\end{CompactItemize}

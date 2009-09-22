@@ -1,0 +1,60 @@
+\chapter{Use Cases}
+
+\section{Prim\"are Use Cases}
+
+\subsection{Use Case 1: Stereoskopische 3D CAVE Applikation}
+
+Der Virtual Reality Forscher Klaus m\"ochte einen virtuellen Operationssaal erstellen, um damit Abl\"aufe f\"ur seine Forschungsgruppe zu simulieren. Dieses 3D Modell m\"ochte er im CAVE der TI-BFH stereoskopisch darstellen.\\ 
+Klaus erstellt dazu sein 3D Modell mit dem bekannten Graphic Framework "'OpenSceneGraph"'. Danach \"ubergibt er den Scene Graphen dem CAVE Rendering Framework und w\"ahlt als Renderingkonfiguration das CRF Standard Set-Up aus. Dieses Set-Up konfiguriert Equalizer nun so, dass die 3D Szene im CAVE auf vier Leinw\"anden mit je zwei \"uberlagerten Bildern pro Leinwand gerendert wird. Mit der Verteilung auf die verschiedenen Rendering Clients und der Konfiguration von Equalizer hat der Forscher aber nichts zu tun. Dies wird durch die im CAVE Rendering Framework zur Verf\"ugung gestellte Konfiguration erledigt. 
+
+\subsubsection{N\"otige Schritte f\"ur Klaus}
+
+\begin{itemize}
+	\item Erstellen des Scene Graphen mit OpenSceneGraph.
+	\item "`\"Ubergabe"' des Scene Graphen an das CAVE Rendering Framework.
+	\item Im CRF das Standard CAVE Setup ausw\"ahlen.
+	\item Starten der Applikation auf dem CAVE Server.
+\end{itemize}
+
+\subsection{Use Case 2: monoskopische 3D CAVE Applikation}
+
+Vorgehen wie oben beschrieben mit dem Unterschied, dass Klaus seine Applikation ohne Stereoeffekt rendern will. Dazu geht Klaus wie bei Use Case 1 vor, mit dem Unterschied, dass er aus dem CRF eine Konfiguration ohne Stereoskopie ausw\"ahlt.
+
+\subsubsection{N\"otige Schritte f\"ur Klaus}
+
+\begin{itemize}
+	\item Erstellen des Scene Graphen mit OpenSceneGraph.
+	\item "`\"Ubergabe"' des Scene Graphen an das CAVE Rendering Framework.
+	\item Im CRF das non-stereo CAVE Setup ausw\"ahlen.
+	\item Starten der Applikation auf dem CAVE Server.
+\end{itemize}
+
+\subsection{Use Case 3: 3D Applikation mit Ausgabe auf zwei Monitoren (Custom Rendering Set-Up)}
+
+Klaus erstellt eine 3D Applikation und m\"ochte diese an seinem Arbeitsplatz auf zwei Bildschirmen ausgeben (linke/rechte H\"alfte). Die Grafik wird via einer Desktop-Workstation mit zwei GPUs gerendert. Klaus erstellt seine 3D Szene wie bisher mit OSG. Da das CRF eine solche Konfiguration nicht standardm\"assig zur Verf\"ugung stellt, muss Klaus seine eigene Konfigurationsklasse schreiben. Dazu kann ein, vom CRF zur Verf\"ugung gestelltes, Interface implementiert oder eine CRF Basisklasse abgeleitet werden.
+
+\subsubsection{N\"otige Schritte f\"ur Klaus}
+
+\begin{itemize}
+	\item Erstellen des Scene Graphen mit OpenSceneGraph.
+	\item Implementieren/erweitern eines CRF Interfaces/ einer CRF Basisklasse.
+	\item "`\"Ubergabe"' des Scene Graphen an das CAVE Rendering Framework.
+	\item Starten der Applikation auf seiner Desktop-Workstation.
+\end{itemize}
+
+\section{Sekund\"are Use Cases}
+
+\subsection{Use Case 4: 3D Applikation mit Ausgabe auf zwei Monitoren (Custom Rendering Set-Up) und Haptik}
+
+Klaus m\"ochte seine Applikation von Use Case 3 mit einem haptischen Interface von Senseable\texttrademark bedienen. Dazu erg\"anzt er den Scene Graphen mit den n\"otigen Informationen f\"ur die Haptik (Material, Physik etc.) und startet seine 3D Applikation wie bei den anderen Use Cases mit dem CRF.
+
+\subsubsection{N\"otige Schritte f\"ur Klaus}
+
+\begin{itemize}
+	\item Erstellen des Scene Graphen mit OpenSceneGraph und der n\"otwendigen Haptik.
+	\item Implementieren/erweitern eines CRF Interfaces/einer CRF Basisklasse.
+	\item "`\"Ubergabe"' des Scene Graphen an das CAVE Rendering Framework.
+	\item Starten der Applikation auf seiner Desktop-Workstation.
+\end{itemize}
+
+

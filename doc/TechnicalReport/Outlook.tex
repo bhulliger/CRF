@@ -1,0 +1,31 @@
+% ==========================================
+% Thesis Report - Outlook ( all )
+% ==========================================
+\chapter{Outlook}
+
+\section{Equalizer}
+
+Two days ago the chief developer of Equalizer announced the Version 1.0 of Equalizer in the next few weeks/month. Our framework was developed and tested on top of Equalizer version 0.6-rc1. New features can be found at the official website of Equalizer: \href{http://www.equalizergraphics.com}{http://www.equalizergraphics.com}.
+
+One of the changes of Equalizer that may affect our framework is the change of the configuration file formats. Equalizer writes on its website:
+
+\begin{quote}
+	Note that this format is the representation for the server's low-level scalable rendering engine. Eventually this file format will be replaced by a higher-level format or \gls{api}, and may even be partially hidden from the user. Automatic configuration and load balancing are not yet implemented, hence the need to have these low-level configuration files.
+\end{quote}
+
+As Equalizer 1.0 is considered to contain stable parts only, it would be a future objetive to upgrade it in the framework.
+
+\section{CAVE Rendering Framework}
+During our thesis project we could realise our main goal: An easy-to-use framework for the desired integration of OSG into Equalizer. To provide more possibilities, we expanded the framework with more functionality. But there are still a lot of possibilities to advance this project. We would like to point out some of these possible future enhancements.
+
+\subsection{Distributed Objects}
+At the moment, the CRF provides no simple mechanism to add more custom distributed data objects to the application. We could not find a simple approach to achieve this feature in a satisfying manor. A distributed object has to be mapped at both sides (master/slave) of the (network) application, committed, synced and counted which leads into a lot of changes just for this new object. To do this, one has to edit more or less all the CRF/eqOsg classes.
+
+\subsection{Advanced Control Application}
+Currently we cannot provide a specialised and advanced server application. It is a common approach in Equalizer for more complex applications to create an executable which does absolutely no rendering tasks but handles user input, physics (collision detection), haptics, data distribution or similar. Consult the \cite{eqPG} for further information about differences between client and server applications in Equalizer.
+
+\subsection{Tracking}
+It should not be a big deal to introduce a tracker into the CRF. Because of the fact that our key and mouse bound camera handling simulates a kind of tracker, it should be easy to add a real tracker. A straight forward approach would be to add a reference to the tracker's interface in the \texttt{crfConfig} class and thereafter pass the tracker's current head matrix to the Equalizer's head matrix in the \texttt{crfConfig::startFrame()} function. Of course this would bring along a lot of calibration work and some special requirements to the OSG scene graph, but technically it should be absolutely possible with the CRF. Unfortunately, there was not enough time to test this use case.
+
+\subsection{Distributed OSG Scene Graph}
+Another big effort would be needed to achieve a fully distributed \gls{osg} scene graph. A trial can be found in the community \cite{distOSG}, but this project has not been finished yet and is highly likely currently stopped. 

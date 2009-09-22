@@ -1,0 +1,52 @@
+\chapter{Quick Install Guide}
+
+This is a quick installation guide which contains only the facts. For more detailed instructions consult the chapter installation in the user manual.
+
+\section{Ubuntu Linux}
+
+\begin{enumerate}
+	\item Install the latest development driver of your graphics card (e. g. nvidia-glx-dev for nvidia)
+	\item Install required dependencies \\ 
+		\textit{\$ sudo apt-get install libtiff*-dev libcurl4-openssl-dev libfreetype*-dev mesa-common-dev freeglut-dev bison flex e2fsprogs}
+	\item Install CMake \\
+		\textit{\$ sudo apt-get install cmake}
+	\item Unpack the CRF archive to your home
+		\textit{\$ unzip <path-to-zip>/crf.zip ~/crf}
+	\item Compile and install OpenSceneGraph
+		\begin{enumerate}
+			\item \textit{\$ cd ~/crf/src/OpenSceneGraph/OpenSceneGraph-2.8}
+			\item \textit{\$ ./configure}
+			\item \textit{\$ sudo make install\_ld\_conf}
+			\item \textit{\$ make \&\& sudo make install}
+			\item \textit{\$ sudo bash -c "cat 'OSG\_FILE\_PATH=/home/<user>/crf/src/OpenSceneGraph/OpenSceneGraph-Data' >> /etc/environment"}
+		\end{enumerate}
+	\item Compile and install Equalizer
+		\begin{enumerate}
+                        \item \textit{\$ cd ~/crf/src/Equalizer/equalizer-0.6-rc1}
+                        \item \textit{\$ make \&\& sudo make install}
+                \end{enumerate}
+	\item SSH setup (if you want to use Equalizer with a network config)
+		\begin{enumerate}
+                        \item Generate a keypair (default location without a passphrase) \\ 
+				\textit{\$ ssh-keygen}
+                        \item Copy the public keys of all computers, that need to connect to the local one, to the \textit{.ssh/authorized\_keys} in your home. (In case of a server: all public keys of the clients. In case of a client: just the public key of the server.)
+                \end{enumerate}
+	\item Install the CRF
+		\begin{enumerate}
+                        \item \textit{\$ cd ~/crf/src/CRF/crf-1.0/crf}
+                        \item \textit{\$ cmake CMakeLists.txt}
+                        \item \textit{\$ make \&\& sudo make install}
+                \end{enumerate}
+\end{enumerate}
+
+
+\section{Windows}
+
+\begin{enumerate}
+	\item Make sure the genuine graphics driver of your graphics card is installed.
+	\item Install Visual C++ 
+	\item Install CMake
+	\item Use the CMake GUI to generate the VC++ project files. Compile and install OpenSceneGraph.
+	\item Open the VC++ of Equalizer. You have to adjust a line in the Equalizer code: in the src/lib/client/event.h you have to add EQ\_EXPORT in front of the default constructor! Then compile and install Equalizer.
+	\item Again, use CMake to generate the VC++ project files for the CRF. Compile and install the CRF.
+\end{enumerate}

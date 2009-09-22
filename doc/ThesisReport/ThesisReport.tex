@@ -1,0 +1,89 @@
+\input{../tex-include/settings}
+\input{../tex-include/header_settings}
+
+\begin{document}
+	
+\input{title_thesis}
+\input{history}
+\pagenumbering{roman}
+
+\input{../tex-include/glossary}
+
+% Inhaltsverzeichnis
+\tableofcontents
+
+% Abbildungsverzeichnis
+\listoffigures
+
+% Tabellenverzeichnis
+\listoftables
+
+% Listings 
+% \lstlistoflistings % no listings in thesis report (yet)
+
+\newpage
+\pagenumbering{arabic}
+
+% Abstract
+\input{../tex-include/abstract}
+
+% Introduction - brods1 ( reviewed hullb2)
+\input{./Introduction}
+
+% Initial Situation - brods1 (reviewed hullb2)
+\input{./InitialSituation}
+
+% Goals - brods1 (reviewed hullb2)
+\input{./Goals}
+
+% Prerequisits - hullb2 (reviewed hullb2)
+\input{./Prerequisits}
+
+% Failed Attempts
+\input{./FailedAttempts}
+
+% Procedure - hullb2 
+\input{./Procedure}
+
+% Testing - waltj3
+\input{./Testing}
+
+% Organization - brods1
+\input{./Organization}
+
+% Project Management - waltj3
+\input{./ProjectManagement}
+
+% Personal Summary - all
+\input{./Summary}
+
+% Conclusion - all
+\input{./Conclusion}
+
+% Outlook - PR
+\input{./OutlookPR}
+
+% =======================================
+% Acronyms
+% =======================================
+\addcontentsline{toc}{chapter}{Glossary}
+\printglossary[title={Glossary}]
+
+% =======================================
+% Bibliography
+% =======================================
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliography{../tex-include/crfbibliography} % Note the lack of whitespace between the commas and the next bib file.
+
+% =======================================
+% Appendices
+% =======================================
+%\addcontentsline{toc}{chapter}{Appendices}
+\appendix
+\input{./Appendices/Appendices}
+
+
+
+%\printglossaries
+
+\end{document}

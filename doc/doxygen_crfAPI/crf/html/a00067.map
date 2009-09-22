@@ -1,0 +1,4 @@
+<area shape="rect" id="node2" href="$a00003.html" title="This class handles the eqOsg basic config for Equalizer." alt="" coords="132,193,236,221">
+<area shape="rect" id="node4" href="$a00010.html" title="FrameData holds all data which is updated each frame." alt="" coords="23,99,153,127">
+<area shape="rect" id="node6" href="$a00008.html" title="The FrameData&#39;s struct to hold members." alt="" coords="5,6,171,34">
+<area shape="rect" id="node8" href="$a00011.html" title="The init data holds all data which is needed during initalization." alt="" coords="177,99,289,127">

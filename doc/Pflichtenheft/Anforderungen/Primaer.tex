@@ -1,0 +1,42 @@
+\section{Prim"are Anforderungen}
+
+\begin{itemize}
+\item Scenegraph in Equalizer integrieren
+\item Stereoskope Ausgabe
+\item OpenGL basiert
+%\item Identische Bildwiedergabe
+% ersetzt durch obenstehender Punkt
+%\item Grafik f"ur OSG (grafik gleich wie bei std. osg)
+\item Performantes Scenegraph Rendering
+\item Erweiterbarkeit
+\item Konfigurierbarkeit
+%gh"ort das nid id usecases?
+%\item configurability (versch. Topologien, konfigurationszeit (zur laufzeit oder vor start?), outputsysteme, distributed rendering)
+%\item Programmierinterface (wie soll Programmierer Framework nutzen k"onnen?)
+\end{itemize}
+
+\subsection{Scenegraph in Equalizer integrieren}
+\label{sg_eq_int}
+Ein Hauptbestandteil dieser Arbeit ist die Integration einer g"angigen C++ Scenegraph Library in Equalizer.  Der Benutzer soll eine Applikation in OSG oder OGRE verfassen k"onnen, wobei das Rendering von Equalizer "ubernommen wird.\\
+Es existiert bereits ein Framework (eqOSG) das diese Integration wahrnimmt. Ist es f"ur unsere Aufgabe einsetzbar, so verwenden wir dieses verwenden.
+
+\subsection{Stereoskope Bildausgabe}
+Eine weitere Anforderung an unser Framework ist die M"oglichkeit zur stereoskopen Bildausgabe. Im CAVE wird diese Technik zur 3D Umgebungsdarstellung verwendet. Daher ein Muss f"ur das \textit{CAVE Rendering Framework}.
+
+%%% bereits in der Ausgangslage
+%Stereoskopie ist eine Technik, die es erm"oglicht ein Bild oder eine Umgebung dreidimensional wahrzunehmen. Meisst wird dazu eine %dreidimensionale Szene aus zwei leicht verschobene Perspektiven abgebildet. Durch eine spezielle Brille wird daf"ur gesorgt, dass nur eine %Perspektive pro Auge wahrnehmbar ist. Dieser Effekt gaukelt dem Betrachter ein Tiefenwahrnehmung vor.
+
+\subsection{OpenGL basiert}
+Das Framework soll auf OpenGL basieren. OpenGL ist eine weit verbreitete und sehr performante, hardwareunterst"utzte Grafik API. Des Weiteren hat OpenGL den Vorteil, dass es Plattformunabh"angig ist.
+
+%\subsection{Identische Bildwiedergabe}
+%Das im CAVE ausgegebene 3D Bild soll so aussehen, wie wenn die Bildausgabe auf einem Monitor erfolgt. Das heisst, es sollten keine %Verschiebungen, Verzerrungen oder "ahnliche Missgebilde auftreten.
+
+\subsection{Performantes Scenegraph Rendering}
+Das Rendern des Scenegraphen soll durch die Verwendung von Equalizer so performant wie m"oglich ablaufen. Ziel ist es, mindestens die gleiche Performanz zu erlangen, die mit den bisherigen L"osungen im CAVE m"oglich waren. Hier gilt es verschiedene Topologien zu testen.
+
+\subsection{Erweiterbarkeit}
+Das Framework soll eine sp"atere Integration von Plugins wie Haptics, Physics etc. erm"oglichen.
+
+\subsection{Konfigurierbarkeit}
+Equalizer soll so konfigurierbar sein, dass beispielsweise nur ein Rechner (mit mehreren Grafikkarten) oder auch ein Cluster von mehreren Rechnern das Rendering t"atigt.

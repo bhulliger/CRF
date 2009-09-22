@@ -1,0 +1,67 @@
+\input{../tex-include/settings}
+\input{../tex-include/header_settings}
+
+\begin{document}
+	
+\input{title_manual}
+\input{history}
+\pagenumbering{roman}
+
+\input{../tex-include/glossary}
+
+% Inhaltsverzeichnis
+\tableofcontents
+
+% Abbildungsverzeichnis
+\listoffigures
+
+% Tabellenverzeichnis
+\listoftables
+
+% Listings 
+\lstlistoflistings
+
+\newpage
+\pagenumbering{arabic}
+
+% =======================================
+% User Manual
+% =======================================
+\chapter{User Guide}
+% Introduction - hullb2
+\input{./Introduction}
+
+% Installation - hullb2
+\input{./Installation}
+
+\chapter{Programming Guide}
+% Example - waltj3
+\input{./Example}
+
+
+
+
+% =======================================
+% Acronyms
+% =======================================
+\addcontentsline{toc}{chapter}{Glossary}
+\printglossary[title={Glossary}]
+
+% =======================================
+% Bibliography
+% =======================================
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliography{../tex-include/crfbibliography} % Note the lack of whitespace between the commas and the next bib file.
+
+% =======================================
+% Appendices
+% =======================================
+%\addcontentsline{toc}{chapter}{Appendices}
+\appendix
+\input{./Appendices/Appendices}
+
+
+
+%\printglossaries
+
+\end{document}

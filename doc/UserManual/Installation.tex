@@ -1,0 +1,282 @@
+% ==========================================
+% User Manual - Installation ( hullb2/waltj3 )
+% ==========================================
+\section{Installation}
+
+The CRF was tested on two setups:
+
+\begin{itemize}
+	\item \nameref{sec:ubuntu_setup}
+	\item \nameref{sec:win_setup}
+\end{itemize}
+
+There are several dependencies you have to be aware of in order to setup a proper environment. Both setups have their own dependencies. They are all listed and described below.
+
+\subsection{Linux Ubuntu 8.10}
+\label{sec:ubuntu_setup}
+
+We assume that you already have a running Ubuntu on your machine. Make sure you have the correct graphics drivers installed (i.e. nvidia-glx-dev for nvidia graphics cards). It is mandatory that you have the developer drivers installed (not the nvidia-glx only), because the CRF must be able to reference the header files. The CRF requires a running CMake, \gls{osg} and Equalizer setup.
+
+\subsubsection{CMake}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{0.2\textwidth}|p{0.75\textwidth}|}
+		\hline Download & \href{http://www.cmake.org}{http://www.cmake.org} \\
+		\hline Minimal Version & CMake 2.6 \\
+		\hline Documentation & \href{http://cmake.org/cmake/help/documentation.html}{http://cmake.org/cmake/help/documentation.html} \\
+		\hline
+	\end{tabular}
+	\caption{CMake Installation}
+\end{table}
+
+The CRF as well as OSG requires CMake. To install CMake on Ubuntu, you simply have to run the following command in a terminal:
+
+\begin{lstlisting}[language=bash,caption={Install cmake on Ubuntu}]
+% sudo apt-get install cmake
+\end{lstlisting}
+
+To install CMake on other Linux distributions you can compile it from source. The instructions can be found online.
+
+\subsubsection{OSG}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{0.2\textwidth}|p{0.75\textwidth}|}
+		\hline Download & \href{http://www.openscenegraph.org/projects/osg/wiki/Downloads}{http://www.openscenegraph.org/projects/osg/wiki/Downloads} \\
+		\hline Minimal Version & OSG 2.8 \\
+		\hline Documentation & \href{http://www.openscenegraph.org/projects/osg/wiki/Support}{http://www.openscenegraph.org/projects/osg/wiki/Support} \\
+		\hline
+	\end{tabular}
+	\caption{OSG Installation}
+\end{table}
+
+It is currently not possible to install OSG as simple as CMake on Ubuntu since aptitude only includes OSG-2.2 which is too old for the CRF. Therefore, make sure you install OSG from source. 
+OSG requires some libraries which have to be installed on the system before you can start compiling OSG itself. Make sure you have the following packages installed on your system:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline \bfseries fileformat & \bfseries unix library  & \bfseries ubuntu package \\ 
+\hline
+\hline  tiff imges & libtiff & libtiff*-dev \\
+\hline  jpeg images & libjpeg &  \\
+\hline  gif images & libungif & \\
+\hline  png images & libpng & libpng*-dev \\
+\hline  true type fonts & freetype & libfreetype*-dev \\
+\hline  libcurl & libcurl & libcurl4-openssl-dev \\
+\hline  mesa & libmesa & mesa-common-dev \\
+\hline  freeglut & libglut & freeglut-dev \\
+\hline
+\end{tabular} 
+\caption{Dependencies for OSG}
+\end{table}
+
+Assuming you have gone through all prerequisists you can install OSG itself now.
+We suggest that you use the following file structure on \textit{all} your workstations to ensure a proper setup. The CD attached provided with this manual contains an archive file \texttt{crf.zip}. This archive contains the source code of OSG as well as any needed data files. Copy the directory to your home directory:
+
+\begin{lstlisting}[language=bash,caption={CRF installation}]
+% cp crf.zip ~/
+% unzip crf.zip
+\end{lstlisting}
+
+If you have a proper CMake setup and all required libraries, you should be able to run \texttt{configure} and get a similar result as listed below:
+
+\begin{lstlisting}[language=bash,caption={OSG configuration}]
+% cd ~/crf/OSG-2.8/
+% ./configure
+[...]
+The build system is configured to instal libraries to /usr/local/lib
+Your applications may not be able to find your installed libraries unless you:
+    set your LD_LIBRARY_PATH (user specific) or
+    update your ld.so configuration (system wide)
+You have an ld.so.conf.d directory on your system, so if you wish to ensure that
+applications find the installed osg libraries, system wide, you could install a
+OSG specific ld.so configuration with:
+    sudo make install_ld_conf
+
+-- Configuring done
+-- Generating done
+
+% sudo make install_ld_conf
+\end{lstlisting}
+
+If \texttt{configure} doesn't work or gets a different result than the one above, make sure you correct the errors before you advance. You can save yourself a lot of time! \\
+
+To install OSG, simply run \texttt{make} as user:
+\begin{lstlisting}[language=bash,caption={OSG installation}]
+% make
+\end{lstlisting}
+
+The installation of OSG may take up to two hours, depending on your hardware. So don't hesitate to get yourself a coffee now...
+
+Assuming a proper \texttt{make}, run \texttt{make install} as root:
+
+\begin{lstlisting}[language=bash,caption={Finish OSG installation}]
+% sudo make install
+\end{lstlisting}
+
+This copies the OSG libraries to the right directories on your system.
+
+\paragraph{Setting System Variables}\hfill\\
+To finish your OSG setup you have to set some system variables. To do so, edit your \texttt{/etc/environments} as root. Add the following line to this file:
+
+\begin{lstlisting}[language=bash,caption={/etc/environment}]
+OSG_FILE_PATH=/home/<user>/crf/OSG-Data
+\end{lstlisting}
+
+
+\subsubsection{Equalizer}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{0.2\textwidth}|p{0.75\textwidth}|}
+		\hline Download & \href{http://www.equalizergraphics.com/downloads/major.html}{http://www.equalizergraphics.com/downloads/major.html} \\
+		\hline Minimal Version & Equalizer 0.6 \\
+		\hline Documentation & \href{http://www.equalizergraphics.com/documents/EqualizerGuide.pdf}{http://www.equalizergraphics.com/documents/EqualizerGuide.pdf} \\
+		\hline
+	\end{tabular}
+	\caption{Equalizer Installation}
+\end{table}
+
+Equalizer has to be installed from source too. Before you start compiling it, make sure you have installed the following packages on your system:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline \bfseries unix library  & \bfseries ubuntu package \\ 
+\hline
+\hline  bison & bison \\ 
+\hline  flex & flex  \\ 
+\hline  libuuid & e2fsprogs  \\
+\hline
+\end{tabular} 
+\caption{Dependencies for Equalizer}
+\end{table}
+
+After installing the prerequisits, simply run \texttt{make} and \texttt{make install} in the source folder of Equalizer: 
+
+\begin{lstlisting}[language=bash,caption={Equalizer installation}]
+% cd ~/crf/equalizer-0.6-rc1/
+% make
+% sudo make install
+\end{lstlisting}
+
+You can simply test your Equalizer installation by running the sample application \texttt{eqPly}, which is the sample application provided by Equalizer:
+
+\begin{lstlisting}[language=bash,caption={Test Equalizer by example application eqPly}]
+% cd /usr/local/bin
+% eqPly
+\end{lstlisting}
+
+A screenshot of the expected output of the \texttt{eqPly} and the \texttt{eVolve} application is attached in Appendix \ref{sec:eqSample}.
+
+\subsubsection{SSH Setup}
+In order to use Equalizer on a distributed setup with multiple rendering clients, each client as well as the server necessarily have to run a SSH server. The server must be able to connect to each client without entering a passwort. Analogously, each client must be able to connect to the server. The easiest way to achieve this is using public key authentication. This can be set up as follows.
+
+Step 1: If not already done, we have to create a key pair (public and private key) on each component:
+\begin{lstlisting}[language=bash,caption={SSH Key generation}]
+% ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/stefan/.ssh/id_rsa):
+% <enter>
+Enter passphrase (empty for no passphrase):
+% <enter>
+Enter same passphrase again:
+% <enter>
+\end{lstlisting}
+We want neither to store the keys somewhere other than in the default directory nor want we to enter a passphrase. Therefore, just press <enter> without typing anything. In this case, we just care about the connection, not so much about the security provided by SSH.
+
+Step 2: Now, the public key has to be added to the authorized\_keys file on each node we want to connect to. Remember that this proceedings have to be done for both directions, from the node running the eqServer to each client and vice versa.
+\begin{lstlisting}[language=bash,caption={RSA-Key distribution}]
+% scp ~/.ssh/id_rsa.pub <ip-of-host>:/home/<username>
+# enter password
+% ssh <ip-of-host> "cat id_rsa.pub >> ~/.ssh/authorized_keys && rm id_rsa.pub"
+# enter password again
+\end{lstlisting}
+
+If everything worked fine, then you should be able to connect without entering a password from now on. If not, go back to the last step and ensure you followed consequently. To test the connection enter
+\begin{lstlisting}[language=bash]
+% ssh <ip-of-host> 
+\end{lstlisting}
+
+
+\subsubsection{CRF}
+
+Change to the CRF directory where the CMakeLists.txt file resides. There, type the following commands.
+
+\begin{lstlisting}[language=bash,caption={CRF installation}]
+% cmake .
+% make
+% sudo make install
+\end{lstlisting}
+
+If you experience any errors after the \texttt{cmake} command, you most probably forgot to follow one of the previous instructions. Otherwise, you installed the CRF on you system. If you use a distributed system with multiple clients, you can distribute the binaries and header files using the shell script distributed with the sources.
+
+Be careful, if you want to use debug libraries. To do so, tell CMake by setting the SET\_DEBUG\_LIBS variable: \texttt{SET( USE\_DEBUG\_LIBS ON )}. Verify that CMake did choose the correct libraries (libnames of \gls{osg} end with d for debug). Be consistent, take eiter the debug libraries from both, \gls{osg} and Equalizer, or from none. This can be done using \texttt{ccmake}.
+
+
+\subsection{Windows XP}
+\label{sec:win_setup}
+
+In order to install the CRF, you a build environment (e.g. Ms Visual C++). Furthermore, it is expected that you have installed the OpenGL library and header files. In the following, we guide you through the installation of CMake, OSG, Equalizer and, finally, the CRF.
+
+\subsubsection{CMake}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{0.2\textwidth}|p{0.75\textwidth}|}
+		\hline Download & \href{http://www.cmake.org}{http://www.cmake.org} \\
+		\hline Minimal Version & CMake 2.6 \\
+		\hline Documentation & \href{http://cmake.org/cmake/help/documentation.html}{http://cmake.org/cmake/help/documentation.html} \\
+		\hline
+	\end{tabular}
+	\caption{CMake Installation}
+\end{table}
+
+The CRF as well as OSG require CMake to be built. To install CMake on Windows XP, just visit the CMake and follow the install instructions. 
+
+Generally, to build the desired project file for Visual C++ using CMake you most probably want to use the CMake GUI. Watch out for the CMakeLists.txt. Then, let CMake create the project files at the selected location.
+
+
+\subsubsection{OSG}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{0.2\textwidth}|p{0.75\textwidth}|}
+		\hline Download & \href{http://www.openscenegraph.org/projects/osg/wiki/Downloads}{http://www.openscenegraph.org/projects/osg/wiki/Downloads} \\
+		\hline Minimal Version & OSG 2.8 \\
+		\hline Documentation & \href{http://www.openscenegraph.org/projects/osg/wiki/Support}{http://www.openscenegraph.org/projects/osg/wiki/Support} \\
+		\hline
+	\end{tabular}
+	\caption{OSG Installation}
+\end{table}
+
+Visit the OSG website and look for the downloads section. Download the above mentioned version of OSG (this guide was tested with 2.8.0 and 2.8.1). You can either simply download and install the binaries or download the source code and compile it by yourself. Just be warned, compile OSG can take up to two hours. Verify that you have fulfill all the requirements mentioned on the website. Now, unpack the zip archive.
+
+If you have chosen to compile OSG by yourself, then go for it and compile it. In any case, you should install the OSG on your system. Make shure to set the path of the OSG data files in the PATH environment variable.
+
+\subsubsection{Equalizer}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{0.2\textwidth}|p{0.75\textwidth}|}
+		\hline Download & \href{http://www.equalizergraphics.com/downloads/major.html}{http://www.equalizergraphics.com/downloads/major.html} \\
+		\hline Minimal Version & Equalizer 0.6 \\
+		\hline Documentation & \href{http://www.equalizergraphics.com/documents/EqualizerGuide.pdf}{http://www.equalizergraphics.com/documents/EqualizerGuide.pdf} \\
+		\hline
+	\end{tabular}
+	\caption{Equalizer Installation}
+\end{table}
+
+If you use Equalizer with Windows you have to change a line in the Equalizer 0.6 sources, before compiling. In the Equalizer file   \texttt{src/lib/client/event.h} you need to add \texttt{EQ\_EXPORT} in front of the default constructor of the \texttt{Event} struct to make this constructor visible for the Equalizer.dll users (like the \gls{crf}). This change will be integrated in further Equalizer releases. 
+
+Now the source is ready to compile.
+
+
+\subsubsection{SSH Setup}
+
+In order to use Equalizer on a distributed setup with multiple rendering clients, you must run a SSH server on every client. This scenario was not tested with Windows clients. My suggestion is to emulate a linux using Cygwin\footnote{http://www.cygwin.com/} or equivalent. If you want to try, install Cygwin and continue with the "SSH Setup" chapter of Ubuntu. Again, this was not tested, so you are on your own here.
+
+\subsubsection{CRF}
+
+Finally, you should be able to install the CRF. Unzip the crf archive, use CMake to generate the project files, build and install it. Now you can take full advantage of the CRF. 
+
+Be careful, if you want to use debug libraries. To do so, tell CMake by setting the SET\_DEBUG\_LIBS variable: \texttt{SET( USE\_DEBUG\_LIBS ON )}. Verify that CMake did choose the correct libraries (libnames of \gls{osg} end with d for debug). Be consistent, take eiter the debug libraries from both, \gls{osg} and Equalizer, or from none. This can be done using the CMake GUI.

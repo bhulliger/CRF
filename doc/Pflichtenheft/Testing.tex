@@ -1,0 +1,26 @@
+\chapter{Testing}
+
+Automatisierte Tests f\"ur ein Framework im grafischen Bereich sind meist recht schwierig zu realisieren. Wir gehen davon aus, dass die verwendeten Frameworks Equalizer und SceneGraph (OSG oder OGRE) selbst schon getestet sind. Unsere Tests beschr\"anken sich also darauf, ob die Schnittstellen vom SceneGraph zu dem \textit{CAVE Rendering Framework} und von diesem zu Equalizer wie gew\"unscht funktionieren.
+
+Nebst der korrekten Funktionsweise des Frameworks interessieren wir uns vor allem auch auf eine gute Performance. 
+
+Um unsere Arbeit zu verifizieren, implementieren wir eine Testapplikation, mit deren Hilfe die Use Cases getestet werden k\"onnen.
+
+\section{Testapplikationen}
+
+Die Testapplikation muss im CAVE der BFH-TI lauff\"ahig sein. Folgende Funktionalit\"aten des Frameworks m\"ussen mithilfe der Testapplikation \"uberpr\"uft werden k\"onnen:
+
+\begin{description}
+\item[Modell] Aus der Applikation m\"ussen SG-Modelle geladen werden k\"onnen.
+\item[Stereo Performance] Es muss eine M\"oglichkeit geben, die Performance von Stereobilder zu \"uberpr\"ufen.
+\item[Shader] Das Framework sollte Shader-tauglich sein (Optionale Anforderung). Es sollten also verschiedene Shader geladen werden k\"onnen.
+\item[Haptics] Falls Haptics im Framework bereits integriert wird (Optionale Anforderung), so muss es eine M\"oglichkeit geben, Haptics ein- und auszuschalten.
+\end{description}
+
+Grunds\"atzlich gilt, dass die Testapplikation eine Feature-by-Feature Applikation sein soll, d.h. f\"ur jedes Implementierte Feature im Framework soll es einen Test Case geben der (dynamisch) ein- und ausgeschaltet werden kann.
+
+Falls eine geeignete bestehende Applikation gefunden werden kann, mit deren Hilfe die Features getestet werden k\"onnen, so kann auch diese verwendet werden.
+
+\section{Test Cases}
+Um eine m\"oglichst komplette und dokumentierte Testumgebung zu erlangen, soll zu jedem implementierten Feature des Frameworks ein Test Case formuliert werden. Dieser soll nebst dem Test Szenario auch dessen Pre- und Postconditions enthalten.
+Wichtig ist, dass das Testing iterativ erfolgt und wo m\"oglich. Tests, die oft ausgef\"uhrt werden sollen, sollten wenn m\"oglich automatisiert werden. Grunds\"atzlich sollte immer ersichtlich sein, was getestet wird, damit zum Schluss eine vollst\"andige Liste von Tests ersichtlich ist.

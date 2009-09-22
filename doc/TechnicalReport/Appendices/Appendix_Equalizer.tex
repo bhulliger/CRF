@@ -1,0 +1,207 @@
+\chapter{Equalizer Notation}
+% GLobal Section ==============================
+\section{Global section}
+\label{sec:appendixGlobalSection}
+
+The global section contains default values for various attributes which are described with the following notation:
+
+\begin{verbatim}
+	EQ_<ENTITY>_<DATATYPE>ATTR_<ATTR_NAME>
+\end{verbatim}
+
+\begin{description}
+	\item[\texttt{ENTITY}] \hfill\\refers to the corresponding section in the configuration file
+	\item[\texttt{DATATYPE}] \hfill\\is a single capital letter for the type of the attribute's value. Possible types are \texttt{S} for strings, \texttt{C} for chars, \texttt{I} for integers and \texttt{F} for floating point values.
+	\item[\texttt{ATTR\_NAME}] \hfill\\is the name of the attribute
+\end{description}
+
+Global attributes can be overwritten with an environment variable of the same name in the appropriate section. Listing \ref{lst:globalSection} shows an example of a global section in a configuration file. The distance between the left and the right eye is set to $0.025m$ per default. Stereo is set to anaglyph, which means that one image is rendered in green and the other in red which leads to a stereoscopic effect with common anaglyph glasses. Furthermore, the Equalizer renders images in fullscreen mode.
+\begin{lstlisting}[language=vrml,caption={Example for a global section in a configuration file},label={lst:globalSection}]
+global {
+	# sets the distance between left and right eye to 0.025m
+	EQ_CONFIG_FATTR_EYE_BASE	0.025		
+	# set the stereo mode to anaglyph
+	EQ_COMPOUND_IATTR_STEREO_MODE	ANAGLYPH
+	# enables fullscreen mode
+	EQ_WINDOW_IATTR_HINT_FULLSCREEN	ON
+}
+\end{lstlisting}
+
+A more detailed description of the global section and its possible attributes can be found in the Equalizer Programming Guide \cite[p. 60ff.]{eqPG}.
+
+% Server Section ==============================
+\section{Server Section}
+\label{sec:appendixServerSection}
+Each configuration requires that a node acts as the server. This node provides the Equalizer configuration file to all render clients. A server in a configuration file is the parent of all render clients. Additionally, it may contain a connection description for the server listening sockets.
+Currently, only the first configuration is considered no matter how many sections are defined in the file. This may change in a future release of Equalizer.
+
+% GLobal Section ==============================
+\section{Connection Section}
+\label{sec:appendixConnectionSection}\hfill\\
+By now, Equalizer supports two connection types: TCP/IP and SDP. The connection section describes the network parameters of an Equalizer process. A connection description has to follow the structure shown in listing \ref{lst:eqConnection}.
+
+\begin{lstlisting}[language=vrml,caption={Definition of a connection in Equalizer}, label={lst:eqConnection}]
+connection { # 0-n times, listening connections of the server
+	type		TCPIP | SDP 	# connection type
+	TCPIP_port	unsigned	# connection port for the socket. 
+	hostname	string		# optional hostname. Used for debugging
+}
+\end{lstlisting}
+
+% Section ==============================
+\section{Config Section}
+\label{sec:appendixConfig}
+
+Possible chlidren of the \texttt{config} section are listed below and a sample is shown in listing \ref{lst:eqConfig}:
+\begin{itemize}
+	\item \emph{latency}: Defines the maximum number of frames the slowest operation may fall behind the application thread.
+	\item \emph{attributes}: Defines attributes for a specific server configuration. These attributes override the attributes in the global section.
+	\item \emph{node}: describes rendering resources.
+	\item \emph{compound}: Uses rendering resources (channels) defined as children of the \emph{nodes}.
+\end{itemize}
+
+\begin{lstlisting}[language=vrml,caption={config section in Equalizer configuration},label={lst:eqConfig}]
+server {
+	config {
+		latency	int	# number of allowed latency frames
+		attributes {
+			[...] # attributes to define or override
+		}
+		node { # 1..n nodes for rendering
+			[...]
+		}
+		compound { # 1..n compounds for rendering usage
+			[...]
+		}
+	}
+}
+\end{lstlisting}
+
+% GLobal Section ==============================
+\section{Node}
+\label{sec:eqNode}
+A node represents a single machine in a cluster and is one process in the operating system. Listing \ref{lst:eqNode} shows a definition of a node in the configuration file.
+
+\begin{lstlisting}[language=vrml,caption={node section in configuration file},label={lst:eqNode}]
+node {
+	name	string
+	connection { 
+		type		TCPIP | SDP
+		TCPIP_port	unsigned
+		hostname	string
+	}
+	attributes {
+		thread_model	ASYNC | DRAW_SYNC | LOCAL_SYNC
+		hint_statistics	FASTEST | NICEST | OFF
+	}
+	pipe {
+		[ ... ]
+	}
+}
+\end{lstlisting}
+
+\begin{itemize}
+	\item \emph{name}: The name of the machine in the cluster. It has no influence on the execution, but may be useful for debugging reasons.
+	\item \emph{connection}: A node may have $0-n$ connection description(s). The connection descriptions are defined in the same as in the server connection section (see \ref{sec:eqServerConnection}).
+	\item \emph{pipe}: Each node has at least one pipe.
+\end{itemize}
+
+Consult the Equalizer Programming Guide \cite[p. 66]{eqPG} for more information about the node section.
+
+% GLobal Section ==============================
+\section{Pipe}
+\label{sec:eqPipe}\hfill\\
+A pipe represents a graphics card (\gls{gpu}) and is one execution thread. Listing \ref{lst:eqPipe} shows the definition fields of a pipe in a configuration.
+
+\begin{lstlisting}[language=vrml,caption={Pipe section in Equalizer configuration},label={lst:eqPipe}]
+node {
+	...
+	pipe {
+		name	string
+		port	unsinged
+		device	unsigned
+		viewport [viewport]
+		attributes {
+			...
+		}
+		window { ... }
+	}
+}
+\end{lstlisting}
+
+\begin{itemize}
+	\item \emph{name}: The name of the pipe. It has no influence on the execution but may be useful for debugging reasons.
+	\item \emph{port}: The port is only used for GLX window systems. It identifies the port number of the X server, i.e. the number after the colon in the \emph{DISPLAY} description (:\textbf{0}.1).
+	\item \emph{device}: The device identifies the graphics adapter. 
+	\item \emph{viewport}: The viewport can be used to override the resolution of the pipe. It is defined in pixels. The default view is automatically detected. Therefore, the viewport usually does not need to be set.
+\end{itemize}
+
+The pipe is the device that depends the most on the underlying operating system. Windowing specific information can be found in the official Equalizer Programming Guide \cite[p. 67]{eqPG}.
+
+% GLobal Section ==============================
+\section{Window}
+\label{sec:eqWindow}\hfill\\
+A window represents an \gls{opengl} drawable and holds an \gls{opengl} context and its definition is listed in listing \ref{lst:eqWindow}.
+
+\begin{lstlisting}[language=vrml,caption={Window section in Equalizer configuration},label={lst:eqWindow}]
+window {
+	name 		string
+	viewport	[ viewport ]
+	attributes {
+		...
+	}
+	channel {
+		[ ... ]
+	}
+}
+\end{lstlisting}
+
+\begin{itemize}
+	\item \emph{name}: The name of the window. It has no influence on the execution but can be useful for debugging reasons.
+	\item \emph{viewport}: The viewport is relative to the pipe. It can be specified in relative or absolute coordinates.
+	\item \emph{attributes}: There are numerous attributes that can be set for a window. A complete list can be found in the Equalizer Programming Guide \cite[p.67-68]{eqPG}.
+\end{itemize}
+
+% GLobal Section ==============================
+\section{Channel}
+\label{sec:eqChannel}\hfill\\
+A channel is a two-dimensional area within a window. Its definition is shown in listing \ref{lst:eqChannel}.
+
+\begin{lstlisting}[language=vrml,caption={Channel section in Equalizer configuration},label={lst:eqChannel}]
+channel {
+	name		string
+	viewport	[ viewport ]
+	attributes {
+		...
+	}
+}
+\end{lstlisting}
+
+\begin{itemize}
+	\item \emph{name}: The name of the channel is used to identify the channel in the respective compounds. It has to be unique within a \emph{config} section.
+	\item \emph{viewport}: The viewport is relative to the window. It can be specified in relative or absolute coordinates. The default viewport is \texttt{[ 0 0 1 1]}, which accords to the full window.
+\end{itemize}
+
+% GLobal Section ==============================
+\section{Compound}
+\label{sec:eqCompound}\hfill\\
+Compounds describe the rendering setup. They use channels for the rendering. These channels are defined in the node section described above. The structure of a compound definition is shown in listing \ref{lst:eqCompound}.
+\begin{lstlisting}[language=vrml,caption={Compound section in Equalizer configuration},label={lst:eqCompound}]
+compound {
+	channel		string
+	eye			[ CYCLOP LEFT RIGHT ]
+	wall {
+		bottom_left 	[ float float float ]
+		bottom_right 	[ float float float ]
+		top_left	 	[ float float float ]
+	}
+}
+\end{lstlisting}
+
+\begin{itemize}
+	\item \emph{channel}: The channel keyword references the first channel with the same name in the \emph{config} section described above.
+	\item \emph{eye}: defines whether to use monoscopic or stereoscopic view
+	\item \emph{wall}: A wall description  is used to define the view frustum of the compound.  
+\end{itemize}
+
+Consider the Equalizer Programming Guide \cite[p. 68ff]{eqPG} for a detailed description of the compound section.

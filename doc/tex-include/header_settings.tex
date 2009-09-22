@@ -1,0 +1,24 @@
+\renewcommand{\footrulewidth}{0pt}  % Linie unten
+\renewcommand{\headrulewidth}{0.3pt}  % Linie oben
+
+\fancyhf{} 
+% head
+\fancyhead[RE,LO]{\small \sectfont\bfseries \includegraphics[height=3.5\baselineskip]{../figures/header}}
+\fancyhead[RO, LE]{\leftmark}
+%\fancyhead[CE]{\sectfont\bfseries \thechapter. Kapitel}
+\fancyfoot[LE,RO]{\small \thepage}
+\pagestyle{fancy}
+
+ 
+\addtolength{\headheight}{2.2\baselineskip} 
+%\addtolength{\headheight}{0.61pt}
+
+\fancypagestyle{plain}{%
+% head
+
+\fancyhead[RE,LO]{\small \sectfont\bfseries \includegraphics[height=3.5\baselineskip]{../figures/header}}
+\fancyhead[RO,LE]{\leftmark}
+%\fancyhead[CE]{\sectfont\bfseries \thechapter. Kapitel}
+\fancyfoot[LE,RO]{\small \thepage}
+\pagestyle{fancy}
+}

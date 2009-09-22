@@ -1,0 +1,170 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% settings                                          %
+%                                                   %
+% einbinden mit: \input{settings}                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper, 11pt, oneside, openany]{scrreprt} % koma-script layout
+
+
+% --------------------------------------
+% alle packages die wir brauchen:
+% --------------------------------------
+
+% Schriften, Sprache, Text:
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[german]{babel}
+\usepackage{../tex-include/german} %sonst gehen die Anfhrungzeichen nicht!
+\usepackage{../tex-include/ngerman}
+%\usepackage[english]{babel}
+%\usepackage{english}
+
+\usepackage[T1]{fontenc}
+\usepackage[scaled]{../tex-include/uarial}
+\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+
+\usepackage{hyperref}
+%\usepackage{../tex-include/glossaries}
+%\makeglossaries
+
+%\usepackage{pifont}
+%\newcommand{\tick}{\quad\quad\color{green}{\ding{52}}}
+%\newcommand{\partialTick}{\quad\quad\color{green}{(\ding{52})}}
+%\newcommand{\cross}{\quad\quad\color{red}{\ding{54}}}
+
+\usepackage{pdfpages}
+
+% wegen deutschen Umlauten
+%\usepackage[ansinew]{inputenc}
+% alles in Farbe:
+\usepackage{color}
+\usepackage{listings}
+\lstset{ %
+language=C,                		% choose the language of the code
+basicstyle=\footnotesize,       % the size of the fonts that are used for the code
+frame=single,			% adds a frame around the code
+captionpos=b,			% sets the caption-position to bottom
+breaklines=true,		% sets automatic line breaking
+breakatwhitespace=false,	% sets if automatic breaks should only happen at whitespace
+tabsize=2,
+escapeinside={\%*}{*)}          % if you want to add a comment within your code
+}
+
+% Tabellen
+\usepackage{tabularx}
+\usepackage{../tex-include/multirow}
+\usepackage{multicol}
+\usepackage{longtable}
+\usepackage{hhline}
+\usepackage{booktabs}
+% Boxen
+\usepackage{../tex-include/pbox} 
+% Aufzaehlungen
+\usepackage{../tex-include/shortlst}
+% Equation array mit mehrfacher Ausrichtung
+\usepackage{array}
+% verbatim
+\usepackage{fancyvrb}
+% Grafik:
+\usepackage{epsfig}
+\usepackage{../tex-include/texdraw}
+\usepackage{graphicx}
+\usepackage{flafter}
+\usepackage[bf]{caption2}  % Wort Abbildung bold
+\usepackage{float} % grafik genau hier einbinden mit [H]
+% AMS-Math:
+\usepackage{amsmath}
+\usepackage{amstext}
+\usepackage{amstext}
+\usepackage{amsfonts}
+\usepackage{amsxtra}
+\usepackage{amssymb}
+%\usepackage{../tex-include/stmaryrd} % blitz
+\usepackage{../tex-include/wasysym}  % varangle
+% double Stroke Fonts
+\usepackage{../tex-include/bbm}
+% Index, Headers
+\usepackage{makeidx}
+\usepackage{fancyhdr}
+\usepackage{lscape}
+\usepackage{enumerate}
+% Schrift fr PDF wegen [T1]
+\usepackage{ae,aecompl}
+
+
+
+%\usepackage{hyperref}
+% \usepackage[
+%   colorlinks,
+%   linkcolor=blue,
+%   urlcolor=red%
+% ]{hyperref}
+
+\usepackage{color}
+\definecolor{darkblue}{rgb}{0,0.1,0.5}
+\hypersetup{colorlinks,
+            linkcolor=darkblue,
+            anchorcolor=darkblue,
+            citecolor=darkblue}
+
+%\definecolor{darkblue}{rgb}{0,0.1,0.5}
+\hypersetup{pdftex=true, colorlinks=false, breaklinks=true, linkcolor=darkblue, menucolor=darkblue, pagecolor=darkblue, urlcolor=darkblue}
+
+% Zum Programmieren
+\usepackage{ifthen}
+\usepackage{calc}
+%struktogramme erstellen
+
+
+%-------------------------
+% Bibliography, index
+%-------------------------
+% fuer Zitate
+\usepackage[square]{natbib}
+
+% Festlegung Art der Zitierung - Havardmethode: Abkuerzung Autor + Jahr
+%\bibliographystyle{IEEEtranSA}
+\bibliographystyle{plain}
+
+% Stichwortverzeichnis erstellen
+%\makeindex
+
+% --------------------------------------
+% Seitenraender neu einstellen:
+% --------------------------------------
+
+% einstellungen r�der fuer caption2
+\setcaptionwidth{0.8\textwidth}
+
+
+%einstellungen fr list umgebung
+\setlength{\topsep}{0pt}
+\setlength{\itemsep}{0.2pt}
+\setlength{\parsep}{0pt}
+
+%einstellungen fr seitenlayout
+\setlength{\marginparwidth}{0pt}
+\setlength{\textwidth}{440pt}
+\setlength{\hoffset}{-20pt}
+\setlength{\voffset}{-20pt}
+\setlength{\evensidemargin}{0pt}
+\setlength{\topmargin}{0pt}
+\setlength{\headheight}{14pt}
+\setlength{\headsep}{18pt}
+\setlength{\textheight}{670pt}
+\setlength{\marginparsep}{0pt}
+\setlength{\marginparpush}{5pt}
+\setlength{\footskip}{27pt}
+
+
+
+% --------------------------------------
+% Einstellungen fr das Koma Skript
+% --------------------------------------
+
+% weniger leerraum ber dem chapter titel
+\renewcommand*{\chapterheadstartvskip}{\vspace*{-1cm}}
+
+
+

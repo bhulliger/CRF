@@ -1,0 +1,105 @@
+\hypertarget{a00013}{
+\section{eqOsg::NodeFactory Class Reference}
+\label{a00013}\index{eqOsg::NodeFactory@{eqOsg::NodeFactory}}
+}
+Our eq node factory to create the \hyperlink{a00045}{eqOsg} objects.  
+
+
+{\tt \#include $<$NodeFactory.h$>$}
+
+Inherited by \hyperlink{a00005}{crf::crfNodeFactory}.
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual eq::Channel $\ast$ \hyperlink{a00013_9cd8a51ad40a04fae74c86d20c5ad561}{createChannel} (eq::Window $\ast$parent)
+\begin{CompactList}\small\item\em creates the \hyperlink{a00002}{eqOsg::Channel} object \item\end{CompactList}\item 
+virtual eq::Config $\ast$ \hyperlink{a00013_0e80614084de6b23a4a2677fc8af7f93}{createConfig} (eq::ServerPtr parent)
+\begin{CompactList}\small\item\em creates the \hyperlink{a00003}{eqOsg::Config} object \item\end{CompactList}\item 
+virtual eq::Node $\ast$ \hyperlink{a00013_9a411368eca08325cdc5f80ea687f217}{createNode} (eq::Config $\ast$parent)
+\begin{CompactList}\small\item\em creates the \hyperlink{a00012}{eqOsg::Node} object \item\end{CompactList}\item 
+virtual eq::Pipe $\ast$ \hyperlink{a00013_10e06f5d0d32f146994274682d39e666}{createPipe} (eq::Node $\ast$parent)
+\begin{CompactList}\small\item\em creates the \hyperlink{a00014}{eqOsg::Pipe} object \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Our eq node factory to create the \hyperlink{a00045}{eqOsg} objects. 
+
+If you create your own objects, this factory has to be overriden and passed when calling eq::init. \begin{Desc}
+\item[See also:]eq::NodeFactory \end{Desc}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{a00013_9cd8a51ad40a04fae74c86d20c5ad561}{
+\index{eqOsg::NodeFactory@{eqOsg::NodeFactory}!createChannel@{createChannel}}
+\index{createChannel@{createChannel}!eqOsg::NodeFactory@{eqOsg::NodeFactory}}
+\subsubsection[{createChannel}]{\setlength{\rightskip}{0pt plus 5cm}virtual eq::Channel$\ast$ eqOsg::NodeFactory::createChannel (eq::Window $\ast$ {\em parent})\hspace{0.3cm}{\tt  \mbox{[}inline, virtual\mbox{]}}}}
+\label{a00013_9cd8a51ad40a04fae74c86d20c5ad561}
+
+
+creates the \hyperlink{a00002}{eqOsg::Channel} object 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em parent}]The channel's parent window. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]The \hyperlink{a00002}{eqOsg::Channel}. \end{Desc}
+\hypertarget{a00013_0e80614084de6b23a4a2677fc8af7f93}{
+\index{eqOsg::NodeFactory@{eqOsg::NodeFactory}!createConfig@{createConfig}}
+\index{createConfig@{createConfig}!eqOsg::NodeFactory@{eqOsg::NodeFactory}}
+\subsubsection[{createConfig}]{\setlength{\rightskip}{0pt plus 5cm}virtual eq::Config$\ast$ eqOsg::NodeFactory::createConfig (eq::ServerPtr {\em parent})\hspace{0.3cm}{\tt  \mbox{[}inline, virtual\mbox{]}}}}
+\label{a00013_0e80614084de6b23a4a2677fc8af7f93}
+
+
+creates the \hyperlink{a00003}{eqOsg::Config} object 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em parent}]The config's parent server. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]The \hyperlink{a00003}{eqOsg::Config}. \end{Desc}
+
+
+Reimplemented in \hyperlink{a00005_0b7b562ae3d0ccc5a98017195926057f}{crf::crfNodeFactory}.\hypertarget{a00013_9a411368eca08325cdc5f80ea687f217}{
+\index{eqOsg::NodeFactory@{eqOsg::NodeFactory}!createNode@{createNode}}
+\index{createNode@{createNode}!eqOsg::NodeFactory@{eqOsg::NodeFactory}}
+\subsubsection[{createNode}]{\setlength{\rightskip}{0pt plus 5cm}virtual eq::Node$\ast$ eqOsg::NodeFactory::createNode (eq::Config $\ast$ {\em parent})\hspace{0.3cm}{\tt  \mbox{[}inline, virtual\mbox{]}}}}
+\label{a00013_9a411368eca08325cdc5f80ea687f217}
+
+
+creates the \hyperlink{a00012}{eqOsg::Node} object 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em parent}]The node's parent config. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]The \hyperlink{a00012}{eqOsg::Node}. \end{Desc}
+\hypertarget{a00013_10e06f5d0d32f146994274682d39e666}{
+\index{eqOsg::NodeFactory@{eqOsg::NodeFactory}!createPipe@{createPipe}}
+\index{createPipe@{createPipe}!eqOsg::NodeFactory@{eqOsg::NodeFactory}}
+\subsubsection[{createPipe}]{\setlength{\rightskip}{0pt plus 5cm}virtual eq::Pipe$\ast$ eqOsg::NodeFactory::createPipe (eq::Node $\ast$ {\em parent})\hspace{0.3cm}{\tt  \mbox{[}inline, virtual\mbox{]}}}}
+\label{a00013_10e06f5d0d32f146994274682d39e666}
+
+
+creates the \hyperlink{a00014}{eqOsg::Pipe} object 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em parent}]The pipe's parent node. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]The \hyperlink{a00014}{eqOsg::Pipe}. \end{Desc}
+
+
+Reimplemented in \hyperlink{a00005_5f35c307f323b385869226c6083df93d}{crf::crfNodeFactory}.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+E:/schule/Thesis/Repo/trunk/crf/src/NodeFactory.h\end{CompactItemize}

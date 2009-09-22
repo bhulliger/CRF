@@ -1,0 +1,36 @@
+\input{../tex-include/settings}
+\input{../tex-include/header_settings}
+
+\begin{document}
+	
+\input{title}
+\pagenumbering{roman}
+
+\input{glossary}
+
+\newpage
+\pagenumbering{arabic}
+
+% Abstract
+\input{./abstract}
+
+% How To Read this Document - Brods1
+\input{./HowToRead}
+
+\includepdf[offset=7mm -7mm,pages=-]{../ThesisReport/ThesisReport.pdf}
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+\includepdf[offset=7mm -7mm,pages=-]{../TechnicalReport/TechnicalReport.pdf}
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+\includepdf[offset=7mm -7mm,pages=-]{../UserManual/UserManual.pdf}
+
+\includepdf[offset=7mm -7mm,pages=-]{../Pflichtenheft/Pflichtenheft.pdf}
+
+\end{document}

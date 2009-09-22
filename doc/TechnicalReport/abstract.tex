@@ -1,0 +1,9 @@
+% Abstract - hullb2
+\begin{abstract}
+	There are numerous parallel rendering frameworks and libraries applicable in visualisation systems. A relatively new approach is provided by the Equalizer API which, compared to Chromium for example, runs an application itself in parallel instead of only the generated OpenGL stream. Unfortunately, Equalizer requires knowledge about parallel rendering and synchronisation in order to get a running application. 
+	
+	The goal of this project was to find a solution that allows both the flexible parallel rendering of an application with Equalizer and the unlimited development of OpenGL applications without any knowledge of the Equalizer API. \gls{osg} is a high performance 3D graphics toolkit that allows the development of such feature-rich OpenGL applications and therefore provides a solution for the second requirement.
+	
+	The \gls{crf} provides all functionality needed to render \gls{osg} applications with Equalizer without further knowledge about parallel rendering or Equalizer. It is compatible with most Equalizer configurations and supports most of the \gls{osg} features. The purpose of the \gls{crf} is a running setup for a four sided \gls{cave} used at the \gls{bfhti}, but it is possible to use it in any visualisation system configurable with Equalizer.
+
+\end{abstract}

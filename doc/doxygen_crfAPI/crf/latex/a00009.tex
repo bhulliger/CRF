@@ -1,0 +1,51 @@
+\hypertarget{a00009}{
+\section{eqOsg::EqViewer Class Reference}
+\label{a00009}\index{eqOsg::EqViewer@{eqOsg::EqViewer}}
+}
+A Viewer which can be used with Equalizer.  
+
+
+{\tt \#include $<$EqViewer.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hypertarget{a00009_bd6695b9ab0b08062c3d6377ae8ac275}{
+\hyperlink{a00009_bd6695b9ab0b08062c3d6377ae8ac275}{EqViewer} ()}
+\label{a00009_bd6695b9ab0b08062c3d6377ae8ac275}
+
+\begin{CompactList}\small\item\em Default constructor. Sets the threading model to \char`\"{}Single\char`\"{} because embedded window viewers need this. \item\end{CompactList}\item 
+void \hyperlink{a00009_c998d9f70b12556a17396dfdabb2c185}{setViewport} (eq::Channel $\ast$channel)
+\begin{CompactList}\small\item\em Sets the viewport of the Camara of the scene so that it matches the viewport of the given Equalizer channel. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+A Viewer which can be used with Equalizer. 
+
+A normal Viewer from OSG would try to create its own windows, which we don't want to, since they are set up by Equalizer for us.
+
+The \hyperlink{a00009}{EqViewer} solves this by setting the correct context and viewport.
+
+Call \hyperlink{a00009_c998d9f70b12556a17396dfdabb2c185}{setViewport()} in your frameDraw() method. 
+
+\subsection{Member Function Documentation}
+\hypertarget{a00009_c998d9f70b12556a17396dfdabb2c185}{
+\index{eqOsg::EqViewer@{eqOsg::EqViewer}!setViewport@{setViewport}}
+\index{setViewport@{setViewport}!eqOsg::EqViewer@{eqOsg::EqViewer}}
+\subsubsection[{setViewport}]{\setlength{\rightskip}{0pt plus 5cm}void EqViewer::setViewport (eq::Channel $\ast$ {\em channel})}}
+\label{a00009_c998d9f70b12556a17396dfdabb2c185}
+
+
+Sets the viewport of the Camara of the scene so that it matches the viewport of the given Equalizer channel. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em channel}]The channel with the Equalizer set viewport. \end{description}
+\end{Desc}
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+E:/schule/Thesis/Repo/trunk/crf/src/EqViewer.h\item 
+E:/schule/Thesis/Repo/trunk/crf/src/EqViewer.cpp\end{CompactItemize}

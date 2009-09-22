@@ -1,0 +1,43 @@
+% ==========================================
+% Thesis Report - Goals ( brods1 )
+% ==========================================
+
+\chapter{Goals}
+A detailed goal description can be found in our functional specification document in the appendix. We defined our goals either primary or secondary.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{0.8\textwidth}|p{0.1\textwidth}|}
+		\hline  \bfseries Goal & \bfseries Achieved \\ 
+		\hline
+		\hline Integrate a Scene Graph in Equalizer	& \tick \\
+		\hline Stereoscope Output 					& \tick \\
+		\hline Based on OpenGL 						& \tick \\
+		\hline Performant Scene Graph Rendering 	& \tick \\
+		\hline Extensibility 						& \tick \\
+		\hline Configurability						& \tick \\
+		\hline
+	\end{tabular}
+	\caption{Primary goals}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{0.8\textwidth}|p{0.1\textwidth}|}
+		\hline \bfseries Goal & \bfseries Achieved \\ 
+		\hline
+		\hline Volume Rendering					& \cross \\
+		\hline Haptics 							& \cross \\
+		\hline Shader 							& \tick \\
+		\hline Physics 							& \partialTick \\
+		\hline Tracking							& \cross \\
+		\hline
+	\end{tabular}
+	\caption{Secondary goals}
+\end{table}
+
+\section{Achieved Goals}
+We integrated \gls{osg} successfully in Equalizer. \gls{osg} applications run flawless on top of Equalizer. Stereoscopic Output can be enabled adjusting the Equalizer configuration. \gls{osg} is a \gls{opengl} based library. At least on the approach with separate rendering clients, we reached a performant scene graph rendering. More on that in the testing chapter (\nameref{sec:crfTesting}). Furthermore, we provide different Equalizer configurations which can be used for desired topology. The user can chose between a predefined one node configuration with multiple graphic cards and a configuration with different separate rendering clients. Then, the \gls{glsl} is fully supported by \gls{osg}. As well, there are some basic physics like collision detection that can be done in \gls{osg}.
+
+\section{Unachieved Goals}
+Unfortunately, there was not enough time to make efforts concerning Volume Rendering, Haptics or Tracking.

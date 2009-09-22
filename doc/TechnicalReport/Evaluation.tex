@@ -1,0 +1,82 @@
+% ==========================================
+% Technical Report - Evaluation ( hullb2 )
+% ==========================================
+\chapter{Evaluation}
+\label{sec:evaluation}
+Due to the fact that the use of Equalizer was required for the project, the only technologies that needed to be evaluated were the two scene graph frameworks \gls{osg} and \gls{ogre}. 
+
+A scene graph is a collection of nodes in a tree structure where a node may have many children. It arranges the logical and spatial representation of a graphical scene. The advantage of such a representation lies in the fact that an operation applied to a node in the tree automatically propagates its effect to all its children. In a graphical context this is very useful, for example, for transformations.
+Scene graph technologies that were considered to be useful for this project are \gls{osg} and \gls{ogre}. Both are described below with the focus on differences rather than similarities.
+
+% OpenSceneGraph ===========================
+\section{OSG}
+\gls{osg} \cite{website:osgWeb} is a cross-platform, open source and legacy-free scene graph \gls{api}. It is based upon the concept of a scene graph providing an object-oriented framework completely written in Standard C++ on top of \gls{opengl}. Therefore, a developer does not have to be concerned about optimising low-level graphics calls.
+
+\subsection{Features}
+The goal of \gls{osg} is to make the benefits of a scene graph freely available to commercial as well as non-commercial users. The key strengths of \gls{osg} are performance, portability and productivity.
+
+\begin{description}
+	\item[Performance] \hfill\\ In the core scene graph, \gls{osg} supports view-frustum culling, occlusion culling, small feature culling, Level Of Detail (LOD) nodes, \gls{opengl} state sorting, vertex arrays, vertex buffer objects, \gls{opengl} Shader Language and display lists. More features can be added by installing different plugins.
+	\item[Productivity] \hfill\\ \gls{osg} makes it possible to rapidly develop high-performance graphics applications by encapsulating the majority of \gls{opengl} functionality. The developer can concentrate on content and how that content is controlled rather than low-level coding.
+	\item[Portability] \hfill\\ An application developed on top of \gls{osg} can easily be ported to different platforms since the core scene graph is based on Standard C++ and \gls{opengl}. Therefore, it has minimal dependency on any specific platform. Furthermore, \gls{osg} is completely independent of windowing systems.
+\end{description}
+
+\subsection{Community}
+\gls{osg} has a large community including users as well as developers. The operational area of \gls{osg} is very wide including many scientific areas. The community mostly communicates over mailing lists. There are different mailing lists for developers and users.
+
+\subsection{Documentation}
+It is recommended to start with the book \emph{OpenSceneGraph Quick Start Guide}\cite{osgGuide} written by Paul Martz.
+Other than that \gls{osg} depends on the community for documentation. The official website of \gls{osg} is a wiki. The reason for that is that \gls{osg} wants its users and developers to be able to document their features themselves. On the one hand this is very useful since all documentation can be found on the same website. On the other hand this approach leads to a slightly unorganised website.
+
+% OGRE =====================================
+\section{OGRE - Object-Oriented Graphics Rendering Engine}
+\gls{ogre} \cite{website:ogreWeb} is a 3D engine based on the scene graph concept. As \gls{osg}, it is completely written in Standard C++. The underlying libraries are Direct3D or \gls{opengl}. \gls{ogre} is available under the LGPL (GNU Lesser General Public License\footnote{\href{http://www.gnu.org/copyleft/lesser.html}{http://www.gnu.org/copyleft/lesser.html}}).
+
+\subsection{Features}
+\gls{ogre} puts emphasis on the design of the engine. The developers of \gls{ogre} pursue the strategy of well designed and well documented features instead of a high number of features, or in other words: quality over quantity.
+
+\subsection{Community}
+The community of \gls{ogre} is comparable with the one of \gls{osg}. Besides mailing lists, \gls{ogre} comes with forums and an IRC channel for communication.
+
+\subsection{Documentation}
+The approach of design-led rather than feature-led is reflected in the documentation of \gls{ogre}. Together with multiple books \gls{ogre} comes with an \gls{api} reference, a manual and a wiki.
+
+
+% \gls{osg} vs. OGRE =============================
+\subsection{OSG vs. OGRE}
+Both of the discussed scene graph \glspl{api} were considered for integration with Equalizer. For comparison of the two technologies, it makes sense to use a decision matrix. The scale reaches from 1 to 10 where 10 is the highest value. Each point in the decision matrix can be weighted differently depending on the importance in the current project.
+
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{|l|c||c|c|c||c|c|c|c|}
+		\multicolumn{2}{r}{ }			&	\multicolumn{3}{c}{\bfseries OSG}	&	\multicolumn{3}{c}{\bfseries OGRE} 	\\
+		\hline
+		Criteria		& Weight		&	Value	& Points	& \%Points		&	Value	& Points	& \%Points		\\
+		\hline
+		Performance I 	& 25\%			&	160fps	& 3			& 75			&	220fps	& 7			& 175			\\
+		Performance II	& 25\%			&	260fps	& 7			& 175			&	220fps	& 3			& 75			\\
+		Community		& 10\%			& 	++		& 4			& 40			&	+++		& 6			& 60			\\
+		Similar Projects& 20\%			& 	eqOSG	& 7			& 140			&	eqOGRE	& 3			& 60			\\
+		Documentation	& 10\%			&	++		& 4			& 40			&	+++		& 6			& 60			\\
+		Extensions		& 10\%			&	++		& 4			& 40			&	+++		& 6			& 60			\\
+		\hline
+		\hline
+		\bfseries Total	&\bfseries 100\%&	\multicolumn{3}{c||}{\bfseries 510}	&	\multicolumn{3}{c|}{\bfseries 490}	\\
+		\hline	
+	\end{tabular}
+	\caption{Decision Matrix OSG - OGRE}
+	\label{tab:DecisionMatrix}
+\end{table}
+
+A stress test application was used to test the performance. This application consists of a three dimensional model consisting of about one billion triangles in an empty universe. The workstation used for the tests was an Intel Pentium Quadcore with an NVIDIA graphics chip. Two different measures were made based on this setup:
+\begin{description}
+	\item[Performance I] 	The framerate (frames per second) when the whole model is visible.
+	\item[Performance II]	The framerate when only a part of the model on the screen (by zooming into the scene until some parts of the scene are outside of the frustum).
+\end{description}
+The result of this test setup was that \gls{ogre} does not show any differences between the setup with the whole model on the screen and the one where only part of the model is visible. In \gls{osg} on the other hand, the framerate increases if part of the model is outside of the frustum.
+
+\gls{ogre} wins the competition in the criteria \emph{Community} because \gls{ogre} provides more communication channels (forum, mailing list, IRC channel) than \gls{osg} and the communication seems to be better organised.
+
+Looking for extensions both of the participants are up-to-date. There are miscellaneous 3rd party extensions that can be installed. Most of them are freely available. The most interesting extensions for this evaluation were physics and haptics plugins. Both are available for \gls{osg} and \gls{ogre}.
+
+Considering all these criteria, \gls{osg} wins the competition as one can see from the result of the decision matrix above. Although, the decision is quite marginal and is mostly based on the fact that there is a project called \emph{eqOSG}, which is currently under development at the University of Siegen (Germany) and that \gls{osg} has a large community in science.

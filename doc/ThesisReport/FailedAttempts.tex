@@ -1,0 +1,18 @@
+% ==========================================
+% Failed Attempts
+% ==========================================
+\nopagebreak
+\chapter{Failed Attempts}
+\section{Overview}
+% This section points out some interesting but failed approaches and their solutions of our thesis work.
+This chapter is dedicated to some interesting but failed approaches. In Order to find a solution for the \gls{crf}, some attempts were not as successful as they appeard at first. We want to point them out to prevent that they appear again in further work on that project.
+
+\section{OsgViewer Setup}
+When we first built our prototype, we figured out that a lot of the tested \gls{osg} functions did not work. After some debugging efforts it turned out that a lot of these tested functions rely on a window definition of the \texttt{osgViewer} class. But in our first prototypes the viewer has been initialised wrong and no window definitions have been created. Thus, common \gls{osg} features like the \texttt{osgViewer::StatsHandler} failed because the handler tries to draw the statistics on a window which has never been created. We fixed this issue by forcing the \texttt{osgViewer} to create an virtual \gls{osg} window (the real windows are handled by Equalizer). Therefore, we changed the mode of the \texttt{osgViewer} to ``EmbeddedWindow'' by calling \texttt{osgViewer::setUpViewerAsEmbeddedInWindow()}. The former mode was ``EmbeddedContext'' which does not create the desired \texttt{osg::window}.
+
+\section{Facade Implementation}
+While searching an easy way to pass a common \gls{osg} application to the \gls{crf}, we first tried to push the pointer of an \texttt{osgViewer} of an existing application to the facade. But this lead into a lot of segmentation faults, because multiple Equalizer pipe threads tried to access the same physical scene graph of the passed viewer. We figured out that every pipe needs its completely independent instance of the viewer. Hence, we removed the capability of pushing viewer pointers to the pipe. Instead, we implemented a mechanism to create custom pipe objects and scene graphs by inheriting the pipe class of the framework. The framework gets forced to use the newly introduced pipe by passing a customised factory to the facade class (\texttt{crfStarter}). Now, when the framework requests a pipe object, this factory creates a complete and independent instance of the pipe and accordingly its viewer.
+
+\section{Event Propagation}
+After the first successful tests with our framework dealing with static scene graphs, we needed a way to handle the synchronisation of multiple dynamic scene graphs, distributed over several nodes (depending on the chosen Equalizer topology). The first idea was to  share the event queue of the \texttt{osgViewers} with the distributable frame data class. This would easily work on one node configurations without network, but for multinode configurations the frame data object is propagated over the network. Thus, all its members have to be serialised, which is not really easy for the \gls{osg} \texttt{EventQueue} class. The actual used solution provides a container member in the frame data class which receives the new events at the beginning of every frame from Equalizer and is pushed over the network to the different nodes. The newly introduced \texttt{crf::crfPipe} class contains several overridable functions, which convert the Equalizer events to \gls{osg} events. These functions are called by the framework. Thereafter, the converted events are submitted to every viewer. Because all these mentioned functions are called simultaneously, all the scene graphs receive the exact same events at the very same time.
+

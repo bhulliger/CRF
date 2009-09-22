@@ -1,0 +1,27 @@
+\section{Sekund"are Anforderungen}
+
+\begin{itemize}
+\item Volume Rendering, Surface Rendering
+\item Haptics
+\item Shader
+\item Physics
+\item Tracking
+\end{itemize}
+
+\subsubsection{Volume Rendering, Surface Rendering}
+Volume\footnote{Volume Rendering ist eine Technik, die sich mit der 3D Darstellung von (allen) Volumendaten befasst.} und Surface Rendering\footnote{Surface Rendering verwendet, im Gegensatz zum Volume Rendering, nur ein Teil der Volumendaten zur Abbildung des Objekts.} soll unterst"utzt werden. 
+
+\subsubsection{Haptics}
+Integrieren einer Computer Haptics\footnote{Unter Computer Haptics versteht man, dass der Benutzer seine virtuelle Umgebung f"uhlen kann. Dies wird durch spezielle haptische Interfaces erm"oglicht, wie einem Cyber Glove oder einem Cyber Pen.} Library in unser Framework. Pr"aferenzen des Auftraggebers w"aren H3DAPI oder Chai3D. Es handelt sich bei beiden um OpenSource L"osungen. Beide Plattformen basieren auf OpenGL und sind in Form von C++ Libraries verf"ugbar.
+
+%Ziel ist es Haptics Tools, beispielsweise ein Haptic Glove, benutzen zu k"onnen.
+
+\subsubsection{Shader}
+Die M"oglichkeit eigene Shader\footnote{Durch Shaderprogrammierung lassen sich bestimmte Renderingeffekte auf 3D Computermodelle anwenden.} zu programmieren und einzubinden soll bestehen.
+
+\subsubsection{Physics}
+%collison detection
+Das Einbinden einer Physik Engine, die unter Anderem Kollisions Detektion unterst"utzt, soll vorgenommen werden. Hierzu gibt es viele OpenSource Kandidaten, wie zum Beispiel Open Dynamics Engine (ODE) oder Physics Abstraction Layer (PAL).
+
+\subsubsection{Tracking}
+Die Implementation von einem Tracking System soll es erm"oglichen, den K"orper oder einzelne K"orperteile eines Benutzers zu verfolgen. 

@@ -1,0 +1,373 @@
+\chapter{Test Results}
+\label{sec:TestReports}
+\section{Test Results for Model Loading}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|b{0.09\textwidth}|b{0.23\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|}
+		\hline
+		\bfseries Tester & Jonas Walti & \bfseries CRF Version & 0.9 & \bfseries Date & 10.05.09 \\
+		\hline
+		\hline
+		\multicolumn{2}{|l|}{\large{\bfseries Model Loading}} & \multicolumn{4}{p{0.6\textwidth}|}{Load a basic model \texttt{cow.osg} by passing the filename as command line argument to the \texttt{crfStarter} class.}\\
+		\hline
+		\hline
+		\# & \bfseries Equalizer Config: & 1 node, 1 pipe & 1 node, 3 simulated pipes &  1 node, 8 pipes (CAVE) &  5 nodes (CAVE Network) \\
+		\hline 1 & Runs as expected & \tick & \tick & \tick & \cross \\
+		\hline 2 & Framerate & \quad\quad70 & \quad\quad20 & \quad\quad100 & \quad\quad- \\
+		\hline 3 & SGs in sync over screens & \quad\quad- & \tick & \tick & \quad\quad- \\
+		\hline 4 & Stereo output & \tick & \tick & \tick & \quad\quad-\\
+		\hline 5 & Camera movement & \tick & \tick & \tick & \quad\quad-\\
+		\hline 6 & Crashless & \tick & \tick & \tick & \quad\quad-\\
+		\hline 7 & Clean exit & \tick & \tick & \tick & \quad\quad-\\
+		\hline
+		\hline \bfseries Remarks & \multicolumn{5}{l|}{-}\\
+		\hline
+	\end{tabular}
+	\caption{Test Series Model Loading, CRF v0.9}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|b{0.09\textwidth}|b{0.23\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|}
+		\hline
+		\bfseries Tester & Jonas Walti & \bfseries CRF Version & 1.0 & \bfseries Date & 09.06.09 \\
+		\hline
+		\hline
+		\multicolumn{2}{|l|}{\large{\bfseries Model Loading}} & \multicolumn{4}{p{0.6\textwidth}|}{Load a basic model \texttt{cow.osg} by passing the filename as command line argument to the \texttt{crfStarter} class.}\\
+		\hline
+		\hline
+		\# & \bfseries Equalizer Config: & 1 node, 1 pipe & 1 node, 3 simulated pipes &  1 node, 8 pipes (CAVE) &  5 nodes (CAVE Network) \\
+		\hline 1 & Runs as expected & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline 2 & Framerate & \quad\quad- & \quad\quad- & \quad\quad106 & \quad\quad550 \\
+		\hline 3 & SGs in sync over screens & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline 4 & Stereo output & \quad\quad- & \quad\quad- & \tick & \tick\\
+		\hline 5 & Camera movement & \quad\quad- & \quad\quad- & \tick & \tick\\
+		\hline 6 & Crashless & \quad\quad- & \quad\quad- & \tick & \tick\\
+		\hline 7 & Clean exit & \quad\quad- & \quad\quad- & \tick & \tick\\
+		\hline
+		\hline \bfseries Remarks & \multicolumn{5}{l|}{-}\\
+		\hline
+	\end{tabular}
+	\caption{Test Series Model Loading, CRF v1.0}
+\end{table}
+
+\section{Test Results for Scene Graph Tests}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|b{0.09\textwidth}|b{0.23\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|}
+		\hline
+		\bfseries Tester & Jonas Walti & \bfseries CRF Version & 0.9 & \bfseries Date & 29.05.09 \\
+		\hline
+		\hline
+		\multicolumn{2}{|l|}{\large{\bfseries Adv. Scene Graph}} & \multicolumn{4}{p{0.6\textwidth}|}{(1) creating a more complex scene graph by overriding CRF functions, (2) creating animations by overriding \texttt{updateSceneGraph()}}\\
+		\hline
+		\hline
+		\# & \bfseries Equalizer Config: & 1 node, 1 pipe & 1 node, 3 simulated pipes &  1 node, 8 pipes (CAVE) &  5 nodes (CAVE Network) \\
+		\hline 1 & Runs as expected & \tick & \tick & \tick & \tick \\
+		\hline 2 & Framerate & \quad\quad 60 & \quad\quad 20 & \quad\quad 60 & \quad\quad 200 \\
+		\hline 3 & SGs in sync over screens & \quad\quad- & \tick & \tick & \tick \\
+		\hline 4 & Stereo output & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline 5 & Camera movement & \tick & \tick & \tick & \tick\\
+		\hline 6 & Crashless & \tick & \tick & \tick & \tick\\
+		\hline 7 & Clean exit & \tick & \tick & \tick & \tick \\
+		\hline 8 & Animation in Sync & \quad\quad- & \tick & \tick & \tick \\
+		\hline
+		\hline \bfseries Remarks & \multicolumn{5}{p{0.85\textwidth}|}{Our own example with a simple universe and its moving planets. Framerate was expected to be higher! Bad EQ config?}\\
+		\hline
+	\end{tabular}
+	\caption{Test Series Model Loading, CRF v0.0}
+\end{table}
+
+\section{Test Results for Shader Tests}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|b{0.09\textwidth}|b{0.23\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|}
+		\hline
+		\bfseries Tester & Jonas Walti & \bfseries CRF Version & 0.5 & \bfseries Date & 10.05.09 \\
+		\hline
+		\hline
+		\multicolumn{2}{|l|}{\large{\bfseries Simple Shader Test}} & \multicolumn{4}{p{0.6\textwidth}|}{starting \texttt{crfStarter} with \texttt{glsl\_xxx} osg models as argument.} \\
+		\hline
+		\hline
+		\# & \bfseries Equalizer Config: & 1 node, 1 pipe & 1 node, 3 simulated pipes &  1 node, 8 pipes (CAVE) &  5 nodes (CAVE Network) \\
+		\hline 1 & Runs as expected & \tick & \tick & \quad\quad- & \quad\quad- \\
+		\hline 2 & Framerate & \quad\quad 60 & \quad\quad 20 & \quad\quad- & \quad\quad- \\
+		\hline 3 & SGs in sync over screens & \quad\quad- & \tick & \quad\quad- & \quad\quad- \\
+		\hline 4 & Stereo output & \quad\quad- & \quad\quad- & \quad\quad- & \quad\quad- \\
+		\hline 5 & Camera movement & \tick & \tick & \quad\quad- & \quad\quad-\\
+		\hline 6 & Crashless & \tick & \tick & \quad\quad- & \quad\quad-\\
+		\hline 7 & Clean exit & \cross & \cross & \quad\quad- & \quad\quad- \\
+		\hline 8 & Animation in Sync & \quad\quad- & \quad\quad- & \quad\quad- & \quad\quad- \\
+		\hline
+		\hline \bfseries Remarks & \multicolumn{5}{p{0.85\textwidth}|}{Segmentation fault when closing the application. Debugging needed! Problem when deleting a shader program twice. This should not happen.}\\
+		\hline
+	\end{tabular}
+	\caption{Test Series Simple Shader Test, CRF v0.5}
+	\label{table:test3}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|b{0.09\textwidth}|b{0.23\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|}
+		\hline
+		\bfseries Tester & Jonas Walti & \bfseries CRF Version & 0.9 & \bfseries Date & 03.06.09 \\
+		\hline
+		\hline
+		\multicolumn{2}{|l|}{\large{\bfseries Simple Shader Test}} & \multicolumn{4}{p{0.6\textwidth}|}{starting \texttt{crfStarter} with \texttt{glsl\_xxx} osg models as argument.} \\
+		\hline
+		\hline
+		\# & \bfseries Equalizer Config: & 1 node, 1 pipe & 1 node, 3 simulated pipes &  1 node, 8 pipes (CAVE) &  5 nodes (CAVE Network) \\
+		\hline 1 & Runs as expected & \tick & \tick & \tick & \quad\quad- \\
+		\hline 2 & Framerate & \quad\quad 60 & \quad\quad 20 & \quad\quad 60 & \quad\quad- \\
+		\hline 3 & SGs in sync over screens & \quad\quad- & \tick & \tick & \quad\quad- \\
+		\hline 4 & Stereo output & \quad\quad- & - & \tick & \quad\quad- \\
+		\hline 5 & Camera movement & \tick & \tick & \tick & -\\
+		\hline 6 & Crashless & \tick & \tick & \tick & -\\
+		\hline 7 & Clean exit & \tick & \tick & \tick & - \\
+		\hline 8 & Animation in Sync & \quad\quad- & - & \tick & - \\
+		\hline
+		\hline \bfseries Remarks & \multicolumn{5}{p{0.85\textwidth}|}{Bug fixed! See \nameref{table:test3}}\\
+		\hline
+	\end{tabular}
+	\caption{Test Series Simple Shader Test, CRF v0.9}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|b{0.09\textwidth}|b{0.23\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|}
+		\hline
+		\bfseries Tester & Jonas Walti & \bfseries CRF Version & 1.0 & \bfseries Date & 09.06.09 \\
+		\hline
+		\hline
+		\multicolumn{2}{|l|}{\large{\bfseries Simple Shader Test}} & \multicolumn{4}{p{0.6\textwidth}|}{starting \texttt{crfStarter} with \texttt{glsl\_xxx} osg models as argument.} \\
+		\hline
+		\hline
+		\# & \bfseries Equalizer Config: & 1 node, 1 pipe & 1 node, 3 simulated pipes &  1 node, 8 pipes (CAVE) &  5 nodes (CAVE Network) \\
+		\hline 1 & Runs as expected & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline 2 & Framerate & \quad\quad- & \quad\quad- & \quad\quad140 & \quad\quad550 \\
+		\hline 3 & SGs in sync over screens & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline 4 & Stereo output & \quad\quad- & \quad\quad-& \tick & \tick \\
+		\hline 5 & Camera movement & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline 6 & Crashless & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline 7 & Clean exit & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline 8 & Animation in Sync & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline
+		\hline \bfseries Remarks & \multicolumn{5}{p{0.85\textwidth}|}{}\\
+		\hline
+	\end{tabular}
+	\caption{Test Series Simple Shader Test, CRF v1.0}
+	\label{table:test3}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|b{0.09\textwidth}|b{0.23\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|}
+		\hline
+		\bfseries Tester & Jonas Walti & \bfseries CRF Version & 0.9 & \bfseries Date & 03.06.09 \\
+		\hline
+		\hline
+		\multicolumn{2}{|l|}{\large{\bfseries Adv. Shader Test}} & \multicolumn{4}{p{0.6\textwidth}|}{straight forward ported version of the OSG Shader Example} \\
+		\hline
+		\hline
+		\# & \bfseries Equalizer Config: & 1 node, 1 pipe & 1 node, 3 simulated pipes &  1 node, 8 pipes (CAVE) &  5 nodes (CAVE Network) \\
+		\hline 1 & Runs as expected & \tick & \cross & \cross & \tick \\
+		\hline 2 & Framerate & \quad\quad 60 & \quad\quad 20 & \quad\quad 70 & \quad\quad 300 \\
+		\hline 3 & SGs in sync over screens & \quad\quad- & \cross & \cross & - \\
+		\hline 4 & Stereo output & \quad\quad- & - & \tick & \tick \\
+		\hline 5 & Camera movement & \tick & \cross & \cross & \tick\\
+		\hline 6 & Crashless & \tick & \tick & \tick & \tick\\
+		\hline 7 & Clean exit & \tick & \tick & \tick & \tick \\
+		\hline 8 & Animation in Sync & \quad\quad- & - & \quad\quad- & \tick \\
+		\hline
+		\hline \bfseries Remarks & \multicolumn{5}{p{0.85\textwidth}|}{Display errors because this ported OSG example uses a lot of global variables. This (bad) technique does not work when using multiple pipes on one node, because every scene graph uses these global objects. Reimplementation needed for further tests.}\\
+		\hline
+	\end{tabular}
+	\caption{Test Series Advanced Shader Test, CRF v0.9}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|b{0.09\textwidth}|b{0.23\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|}
+		\hline
+		\bfseries Tester & Jonas Walti & \bfseries CRF Version & 1.0 & \bfseries Date & 09.06.09 \\
+		\hline
+		\hline
+		\multicolumn{2}{|l|}{\large{\bfseries Adv. Shader Test}} & \multicolumn{4}{p{0.6\textwidth}|}{straight forward ported version of the OSG Shader Example} \\
+		\hline
+		\hline
+		\# & \bfseries Equalizer Config: & 1 node, 1 pipe & 1 node, 3 simulated pipes &  1 node, 8 pipes (CAVE) &  5 nodes (CAVE Network) \\
+		\hline 1 & Runs as expected & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline 2 & Framerate & \quad\quad- & \quad\quad- & \quad\quad 60 & \quad\quad 250 \\
+		\hline 3 & SGs in sync over screens & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline 4 & Stereo output & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline 5 & Camera movement & \quad\quad- & \quad\quad- & \tick & \tick\\
+		\hline 6 & Crashless & \quad\quad- & \quad\quad- & \tick & \tick\\
+		\hline 7 & Clean exit & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline 8 & Animation in Sync & \quad\quad- & - & \tick & \tick \\
+		\hline
+		\hline \bfseries Remarks & \multicolumn{5}{p{0.85\textwidth}|}{Our own example with a simple universe and its moving planets. Framerate was expected to be igher! Bad EQ Config?}\\
+		\hline
+	\end{tabular}
+	\caption{Test Series Advanced Shader Test, CRF v1.0}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|b{0.09\textwidth}|b{0.23\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|}
+		\hline
+		\bfseries Tester & Jonas Walti & \bfseries CRF Version & 1.0 & \bfseries Date & 09.06.09 \\
+		\hline
+		\hline
+		\multicolumn{2}{|l|}{\large{\bfseries Adv. Shader Test}} & \multicolumn{4}{p{0.6\textwidth}|}{straight forward ported version of the OSG Shader Example} \\
+		\hline
+		\hline
+		\# & \bfseries Equalizer Config: & 1 node, 1 pipe & 1 node, 3 simulated pipes &  1 node, 8 pipes (CAVE) &  5 nodes (CAVE Network) \\
+		\hline 1 & Runs as expected & \quad\quad- & \quad\quad- & \quad\quad- & \tick \\
+		\hline 2 & Framerate & \quad\quad- & \quad\quad- & \quad\quad- & \quad\quad300 \\
+		\hline 3 & SGs in sync over screens & \quad\quad- & \quad\quad- & \quad\quad- & \tick \\
+		\hline 4 & Stereo output & \quad\quad- & \quad\quad- & \quad\quad- & \tick \\
+		\hline 5 & Camera movement & \quad\quad- & \quad\quad- & \quad\quad- & \tick \\
+		\hline 6 & Crashless & \quad\quad- & \quad\quad- & \quad\quad- & \tick \\
+		\hline 7 & Clean exit & \quad\quad- & \quad\quad- & \quad\quad- & \tick \\
+		\hline 8 & Animation in Sync & \quad\quad- & \quad\quad- & \quad\quad- & \tick \\
+		\hline
+		\hline \bfseries Remarks & \multicolumn{5}{p{0.85\textwidth}|}{Our own example with a simple universe and its moving planets. Framerate was expected to be igher! Bad EQ Config?}\\
+		\hline
+	\end{tabular}
+	\caption{Test Series Advanced Shader Test, CRF v1.0}
+\end{table}
+
+\section{Test Results for Event Tests}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|b{0.09\textwidth}|b{0.23\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|}
+		\hline
+		\bfseries Tester & Jonas Walti & \bfseries CRF Version & 0.9 & \bfseries Date & 29.05.09 \\
+		\hline
+		\hline
+		\multicolumn{2}{|l|}{\large{\bfseries OSG Event Test}} & \multicolumn{4}{p{0.6\textwidth}|}{disabled eq Camera, added \texttt{osgTrackballManipulator} to the viewers camera, added the \texttt{osgStatsHandler} to the viewer (which can be toggled by key press events)} \\
+		\hline
+		\hline
+		\# & \bfseries Equalizer Config: & 1 node, 1 pipe & 1 node, 3 simulated pipes &  1 node, 8 pipes (CAVE) &  5 nodes (CAVE Network) \\
+		\hline 1 & Runs as expected & \cross & \cross & \quad\quad- & - \\
+		\hline 2 & Framerate & \quad\quad 60 & \quad\quad 20 & \quad\quad- & - \\
+		\hline 3 & SGs in sync over screens & \quad\quad- & \tick & \quad\quad- & - \\
+		\hline 4 & Stereo output & \quad\quad- & \quad\quad- & \quad\quad- & \quad\quad- \\
+		\hline 5 & Camera movement & \tick & \tick & \quad\quad- & \quad\quad-\\
+		\hline 6 & Crashless & \tick & \tick & \quad\quad- & \quad\quad-\\
+		\hline 7 & Clean exit & \tick & \tick & \quad\quad- & \quad\quad- \\
+		\hline 8 & Animation in Sync & \quad\quad- & - & \quad\quad- & \quad\quad- \\
+		\hline
+		\hline \bfseries Remarks & \multicolumn{5}{p{0.85\textwidth}|}{event forwarding works, but EQ does not report the proper ASCII codes for some key events. Tracked in the Technical Documentation. Windows reports uppercase keys! This has to be respected when implementing \texttt{convertEventsToOsg()}}\\
+		\hline
+	\end{tabular}
+	\caption{Test Series OSG Event Tests, CRF v0.9}
+\end{table}
+
+\section{Test Results for Blender Tests}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|b{0.09\textwidth}|b{0.23\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|}
+		\hline
+		\bfseries Tester & Jonas Walti & \bfseries CRF Version & 0.9 & \bfseries Date & 24.05.09 \\
+		\hline
+		\hline
+		\multicolumn{2}{|l|}{\large{\bfseries Blender Test}} & \multicolumn{4}{p{0.6\textwidth}|}{Exporting lender scenes with the OSG Exporter blender plugin. Loading the \texttt{.osg} model with the \texttt{crfStarter} as argument} \\
+		\hline
+		\hline
+		\# & \bfseries Equalizer Config: & 1 node, 1 pipe & 1 node, 3 simulated pipes &  1 node, 8 pipes (CAVE) &  5 nodes (CAVE Network) \\
+		\hline 1 & Runs as expected & \tick & \tick & \tick & \tick \\
+		\hline 2 & Framerate & variable & variable & \quad\quad 60 & \quad\quad 270 \\
+		\hline 3 & SGs in sync over screens & \quad\quad- & \tick & \tick & \tick \\
+		\hline 4 & Stereo output & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline 5 & Camera movement & \tick & \tick & \tick & \tick \\
+		\hline 6 & Crashless & \tick & \tick & \tick & \tick \\
+		\hline 7 & Clean exit & \tick & \tick & \tick & \tick \\
+		\hline 8 & Animation in Sync & \quad\quad- & \quad\quad- & \quad\quad- & \quad\quad- \\
+		\hline
+		\hline \bfseries Remarks & \multicolumn{5}{p{0.85\textwidth}|}{when the blender-to-osg limitations have been respected (well documented on the internet) everything works fine! framerate not reported, because of the fact, that we tested several models.}\\
+		\hline
+	\end{tabular}
+	\caption{Test Series Blender Tests, CRF v0.9}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|b{0.09\textwidth}|b{0.23\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|}
+		\hline
+		\bfseries Tester & Jonas Walti & \bfseries CRF Version & 1.0 & \bfseries Date & 09.06.09 \\
+		\hline
+		\hline
+		\multicolumn{2}{|l|}{\large{\bfseries Blender Test}} & \multicolumn{4}{p{0.6\textwidth}|}{Exporting lender scenes with the OSG Exporter blender plugin. Loading the \texttt{.osg} model with the \texttt{crfStarter} as argument} \\
+		\hline
+		\hline
+		\# & \bfseries Equalizer Config: & 1 node, 1 pipe & 1 node, 3 simulated pipes &  1 node, 8 pipes (CAVE) &  5 nodes (CAVE Network) \\
+		\hline 1 & Runs as expected & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline 2 & Framerate & variable & variable & \quad\quad60 & \quad\quad550 \\
+		\hline 3 & SGs in sync over screens & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline 4 & Stereo output & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline 5 & Camera movement & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline 6 & Crashless & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline 7 & Clean exit & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline 8 & Animation in Sync & \quad\quad- & \quad\quad- & \quad\quad- & \tick \\
+		\hline
+		\hline \bfseries Remarks & \multicolumn{5}{p{0.85\textwidth}|}{when the blender-to-osg limitations have been respected (well documented on the internet) everything works fine! framerate not reported, because of the fact, that we tested several models.}\\
+		\hline
+	\end{tabular}
+	\caption{Test Series Blender Tests, CRF v1.0}
+\end{table}
+
+\section{Stress Tests}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|b{0.09\textwidth}|b{0.23\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|}
+		\hline
+		\bfseries Tester & Jonas Walti & \bfseries CRF Version & 0.9 & \bfseries Date & 03.06.09 \\
+		\hline
+		\hline
+		\multicolumn{2}{|l|}{\large{\bfseries Stress Test}} & \multicolumn{4}{p{0.6\textwidth}|}{Stress demo with one rotating Stanford dragon per wall.} \\
+		\hline
+		\hline
+		\# & \bfseries Equalizer Config: & 1 node, 1 pipe & 1 node, 3 simulated pipes &  1 node, 8 pipes (CAVE) &  5 nodes (CAVE Network) \\
+		\hline 1 & Runs as expected & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline 2 & Framerate & \quad\quad- & \quad\quad- & \quad\quad18 & \quad\quad97 \\
+		\hline 3 & SGs in sync over screens & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline 4 & Stereo output & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline 5 & Camera movement & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline 6 & Crashless & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline 7 & Clean exit & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline
+		\hline \bfseries Remarks & \multicolumn{5}{p{0.85\textwidth}|}{}\\
+		\hline
+	\end{tabular}
+	\caption{Test Series Stress Tests, CRF v0.9}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|b{0.09\textwidth}|b{0.23\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|m{0.13\textwidth}|}
+		\hline
+		\bfseries Tester & Jonas Walti & \bfseries CRF Version & 1.0 & \bfseries Date & 09.06.09 \\
+		\hline
+		\hline
+		\multicolumn{2}{|l|}{\large{\bfseries Stress Test}} & \multicolumn{4}{p{0.6\textwidth}|}{Stress demo with one rotating Stanford dragon per wall.} \\
+		\hline
+		\hline
+		\# & \bfseries Equalizer Config: & 1 node, 1 pipe & 1 node, 3 simulated pipes &  1 node, 8 pipes (CAVE) &  5 nodes (CAVE Network) \\
+		\hline 1 & Runs as expected & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline 2 & Framerate & \quad\quad- & \quad\quad- & \quad\quad23 & \quad\quad108 \\
+		\hline 3 & SGs in sync over screens & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline 4 & Stereo output & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline 5 & Camera movement & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline 6 & Crashless & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline 7 & Clean exit & \quad\quad- & \quad\quad- & \tick & \tick \\
+		\hline
+		\hline \bfseries Remarks & \multicolumn{5}{p{0.85\textwidth}|}{}\\
+		\hline
+	\end{tabular}
+	\caption{Test Series Stress Tests, CRF v1.0}
+\end{table}
+

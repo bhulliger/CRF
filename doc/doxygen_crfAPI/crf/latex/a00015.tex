@@ -1,0 +1,54 @@
+\hypertarget{a00015}{
+\section{crf::SceneReader Class Reference}
+\label{a00015}\index{crf::SceneReader@{crf::SceneReader}}
+}
+This class provides an advanced $\ast$.osg file load mechanism.  
+
+
+{\tt \#include $<$SceneReader.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hypertarget{a00015_1d99eb0e15dc12f7f60cf4a7e9fc17d5}{
+\hyperlink{a00015_1d99eb0e15dc12f7f60cf4a7e9fc17d5}{SceneReader} ()}
+\label{a00015_1d99eb0e15dc12f7f60cf4a7e9fc17d5}
+
+\begin{CompactList}\small\item\em Default constructor. \item\end{CompactList}\item 
+\hypertarget{a00015_2b3bfe0495f724223c8b846b7637b242}{
+\hyperlink{a00015_2b3bfe0495f724223c8b846b7637b242}{$\sim$SceneReader} ()}
+\label{a00015_2b3bfe0495f724223c8b846b7637b242}
+
+\begin{CompactList}\small\item\em Destructor. \item\end{CompactList}\item 
+osg::ref\_\-ptr$<$ osg::Node $>$ \hyperlink{a00015_8ca1f3b1c2a9940175cc4d978ad68098}{readModel} (const std::string \&filename)
+\begin{CompactList}\small\item\em Reads the model by a passed filename. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This class provides an advanced $\ast$.osg file load mechanism. 
+
+IMPORTANT: osg-file-file loading can end up in memory abuse when used multiple times with one running instance of the application. 
+
+\subsection{Member Function Documentation}
+\hypertarget{a00015_8ca1f3b1c2a9940175cc4d978ad68098}{
+\index{crf::SceneReader@{crf::SceneReader}!readModel@{readModel}}
+\index{readModel@{readModel}!crf::SceneReader@{crf::SceneReader}}
+\subsubsection[{readModel}]{\setlength{\rightskip}{0pt plus 5cm}osg::ref\_\-ptr$<$ osg::Node $>$ SceneReader::readModel (const std::string \& {\em filename})}}
+\label{a00015_8ca1f3b1c2a9940175cc4d978ad68098}
+
+
+Reads the model by a passed filename. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em filename}]The filename of the Model. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]The returned OSG Node. \end{Desc}
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+E:/schule/Thesis/Repo/trunk/crf/src/SceneReader.h\item 
+E:/schule/Thesis/Repo/trunk/crf/src/SceneReader.cpp\end{CompactItemize}

@@ -1,0 +1,77 @@
+\input{../tex-include/settings}
+\input{../tex-include/header_settings}
+
+\begin{document}
+	
+\input{title_tech}
+\input{history}
+\pagenumbering{roman}
+
+\input{../tex-include/glossary}
+
+% Inhaltsverzeichnis
+\tableofcontents
+
+% Abbildungsverzeichnis
+\listoffigures
+
+% Tabellenverzeichnis
+\listoftables
+
+% Listings 
+\lstlistoflistings
+
+\newpage
+\pagenumbering{arabic}
+
+% Abstract
+\input{./abstract}
+
+% How To Read this Document - Brods1
+%\input{./HowToRead}
+
+% Introduction - hullb2
+\input{./Introduction}
+
+% Evaluation - hullb2
+\input{./Evaluation}
+
+% Equalizer - hullb2
+\input{./Equalizer}
+
+% Framework - waltj3
+\input{./Framework}
+
+% Outlook
+\input{./Outlook}
+
+% Testing 
+\input{./Testing}
+
+% Demo / Test Applications - all
+\input{./DemoApplications}
+
+
+% =======================================
+% Acronyms
+% =======================================
+\addcontentsline{toc}{chapter}{Glossary}
+\printglossary[title={Glossary}]
+
+% =======================================
+% Bibliography
+% =======================================
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliography{../tex-include/crfbibliography} % Note the lack of whitespace between the commas and the next bib file.
+
+% =======================================
+% Appendices
+% =======================================
+%\addcontentsline{toc}{chapter}{Appendices}
+\appendix
+\input{./Appendices/Appendices}
+
+
+%\printglossaries
+
+\end{document}

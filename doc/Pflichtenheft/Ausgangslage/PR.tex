@@ -1,0 +1,13 @@
+\section{Paralleles Rendering}
+Standard OpenGL Applikationen werden nicht parallel gerendert. In einer sogenannten Event-Loop wird die Szene immer wieder neu gezeichnet, die Daten werden ver"andert und Events verarbeitet. Je nach Output wird das Frame neu gezeichnet.
+
+Eine Applikation, die parallel gerendert wird, sieht vom Aufbau her sehr "ahnlich aus. Im Gegensatz zu einer herk"ommlichen OpenGL Applikation wird hier aber der Rendering Code von dem Main-Event-Loop getrennt. Der Rendering Code wird dann parallel auf verschiedenen Resourcen ausgef"uhrt.
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[scale=0.4]{../figures/parallel_rendering_execution_flow}
+\caption{Paralleles Rendering (Quelle: [5])}
+\end{center}
+\end{figure}
+
+\input{./Ausgangslage/PR/Equalizer}

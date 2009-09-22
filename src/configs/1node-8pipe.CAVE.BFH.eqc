@@ -1,0 +1,93 @@
+# Configuration file for 1 appNode with 8 pipes (4 graphics cards with 2 dvi outputs each).
+# The rendering output is a 2mx2m CAVE with 3 sides and a floor screen.
+
+# the global section is configures attributes that are valid for all configurations listed below.
+global {
+	EQ_CONFIG_FATTR_EYE_BASE	0.025 # set the eye distance between the left and the right eye.
+}
+
+server {
+	config {
+		# the appNode represents the node, on which the application runs.
+		appNode {
+			pipe {
+				device 1 # port number of graphics card
+				window {
+					# The channel id (name) must be unique. It is the reference for the compounds.
+					channel { name "fwall-leye" }
+				}
+			}
+			pipe { device 0 window { channel { name "rwall-leye" } } }
+			pipe { device 2 window { channel { name "floor-leye" } } }
+			pipe { device 3 window { channel { name "lwall-leye" } } }
+			pipe { device 4 window { channel { name "floor-reye" } } }
+			pipe { device 5 window { channel { name "fwall-reye" } } }
+			pipe { device 6 window { channel { name "lwall-reye" } } }
+			pipe { device 7 window { channel { name "rwall-reye" } } }
+		}
+		compound {
+			compound {
+				# a wall is uniquely defined by 3 points
+				wall {
+					bottom_left		[ -1.25 -1  1 ]
+					bottom_right	[ -1.25 -1 -1 ]
+					top_left			[ -1.25  1  1 ]
+				}
+				# a compound inheriting from the upper compound with the wall.
+				compound {
+					channel "lwall-leye" # channel to be displayed
+					eye [ LEFT ] # eye pass
+				}
+				compound {
+					channel "lwall-reye"
+					eye [ RIGHT ]
+				}
+			}
+			compound {
+				wall {
+					bottom_left		[ -1.25 -1 -1 ]
+					bottom_right	[  1.25 -1 -1 ]
+					top_left			[ -1.25  1 -1 ]
+				}
+				compound {
+					channel "fwall-leye"
+					eye [ LEFT ]
+				}
+				compound {
+					channel "fwall-reye"
+					eye [ RIGHT ]
+				}
+			}
+			compound {
+				wall {
+					bottom_left		[  1.25 -1 -1 ]
+					bottom_right	[  1.25 -1  1 ]
+					top_left			[  1.25  1 -1 ]
+				}
+				compound {
+					channel "rwall-leye"
+					eye [ LEFT ]
+				}
+				compound {
+					channel "rwall-reye"
+					eye [ RIGHT ]
+				}
+			}
+			compound {
+				wall {
+					bottom_left		[ -1.25 -1  1 ]
+					bottom_right	[  1.25 -1  1 ]
+					top_left			[ -1.25 -1 -1 ]
+				}
+				compound {
+					channel "floor-leye"
+					eye [ LEFT ]
+				}
+				compound {
+					channel "floor-reye"
+					eye [ RIGHT ]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,56 @@
+# Simulating a three pipe system on a single pipe. Projections are set up for a
+# 1.5m high wall, 4x3 aspect ratio and 10% overlap. Add pipe device numbers and
+# use fullscreen windows to get a production setup.
+
+server
+{
+    config
+    {
+        appNode
+        {
+            appNode {
+				pipe { device 0 window { channel { name "fwall-leye" } } }
+				pipe { device 1 window { channel { name "rwall-leye" } } }
+#				pipe { device 2 window { channel { name "floor-leye" } } }
+				pipe { device 3 window { channel { name "lwall-leye" } } }
+#				pipe { device 4 window { channel { name "floor-reye" } } }
+				pipe { device 5 window { channel { name "fwall-reye" } } }
+				pipe { device 6 window { channel { name "lwall-reye" } } }
+				pipe { device 7 window { channel { name "rwall-reye" } } }
+			}
+        }
+        compound
+        { 
+            compound
+            { 
+                channel "lwall-leye"
+                wall {
+					bottom_left		[ -1.25 -1  1 ]
+					bottom_right	[ -1.25 -1 -1 ]
+					top_left		[ -1.25  1  1 ]
+				}
+                swapbarrier {}
+            }
+            compound
+            { 
+                channel "fwall-leye"
+                wall {
+					bottom_left		[ -1.25 -1 -1 ]
+					bottom_right	[  1.25 -1 -1 ]
+					top_left		[ -1.25  1 -1 ]
+				}
+                swapbarrier {}
+            }
+            compound
+            { 
+                channel "rwall-leye"
+                wall {
+					bottom_left		[  1.25 -1 -1 ]
+					bottom_right	[  1.25 -1  1 ]
+					top_left		[  1.25  1 -1 ]
+				}
+                swapbarrier {}
+            }
+        }
+    }    
+}

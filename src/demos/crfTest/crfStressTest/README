@@ -1,0 +1,25 @@
+==========================
+||      crfStressTest   || 
+==========================
+
+The crfStressTest is an application which can be used to load huge models. It was 
+initially written to test the performance of a four wall CAVE (for further information
+see http://en.wikipedia.org/wiki/Cave_Automatic_Virtual_Environment). It loads (huge)
+mesh models on each side: on the front, on the left, on the right and on the bottom.
+
+In order to run the crfStressTest properly, the corresponding model files must reside 
+somewhere in your environment.
+
+The necessary files are:
+- bunny.osg
+- armadillo.osg
+- buddha.osg
+- dragon.osg
+
+The models can be downloaded from http://graphics.stanford.edu/data/3Dscanrep/. The 
+model format is genuinly PLY. In order to load it into the stress test application
+you have to convert it to the OSG file format. Use a 3D modeling tool for this 
+conversion, e. g. Blender.
+
+A plugin to teach Blender about OSG exports can be found on 
+http://projects.blender.org/projects/osgexport/

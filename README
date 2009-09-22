@@ -1,0 +1,27 @@
+===============================================================
+Project: CRF - CAVE Rendering Framework
+		 A Bachelor Thesis at the 
+		 Berne University of Applied Sciences - 
+		 Engineering and Information Technology,
+		 Computer Perception & Virtual Reality Research Group
+		 www.cpvr.ch
+		
+Authors: Jonas Walti, jonas@realboarder.ch
+		 Brigitte Hulliger, brigitte.hulliger@gmail.com
+		 Stefan Broder
+
+License: LGPL
+================================================================
+
+This framework allows to render OSG (OpenSceneGraph, www.openscenegraph.org) applications with Equalizer (www.equalizergraphics.com). For further explanations,
+some examples, a technical report and a user guide should come along with the code.
+
+This simple framework is based on eqOSG - a minimal example published by 
+the University of Siegen, 2009.
+
+CREDITS:
+Special thanks to Thomas McGuire (Uni Siegen) and Stefan Eilemann 
+(Equalizer, Eyescale) for their support!
+		
+		
+
